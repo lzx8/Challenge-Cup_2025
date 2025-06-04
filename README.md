@@ -9,3 +9,7 @@
 彭晓纯
 陈槿千
 ======
+
+开发准备：
+1、https://developers.weixin.qq.com/miniprogram/dev/devtools/ext.html 下载微信开发者工具
+2、APPID：wx6b3c93505c5f4d2c
