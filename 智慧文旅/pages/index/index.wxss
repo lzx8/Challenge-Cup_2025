@@ -141,3 +141,56 @@
   background-color: #1aad19;
   text-align: center;
 }
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #fff;
+  position: relative;
+}
+.img-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* 让图片区域尽量填充剩余空间 */
+  min-height: 0;
+}
+
+.dynamic-img {
+  width: 90vw;
+  height: 60vh;
+  max-width: 100vw;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+}
+.input-box {
+  padding: 32rpx;
+  background: #f8f8f8;
+}
+input {
+  width: 100%;
+  padding: 20rpx 16rpx;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8rpx;
+  background: #fff;
+}
+.input-row {
+  display: flex;
+  align-items: center;
+  padding: 32rpx;
+  background: #f8f8f8;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+.input-row input {
+  flex: 1;
+  margin-right: 20rpx;
+}

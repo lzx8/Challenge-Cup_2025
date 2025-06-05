@@ -174,23 +174,9 @@ Page({
       url: "/pages/chatBot/chatBot",
     });
   },
-  scrollToAnchor: function (e) {
-    // 获取点击的锚点 ID
-    const anchorId = e.currentTarget.dataset.anchor;
-    // 使用 wx.createSelectorQuery() 获取锚点元素的位置
-    const query = wx.createSelectorQuery();
-    query.select("#" + anchorId).boundingClientRect();
-    query.selectViewport().scrollOffset();
-    query.exec((res) => {
-      if (res[0]) {
-        // 获取锚点元素距离页面顶部的距离
-        const scrollTop = res[1].scrollTop + res[0].top;
-        // 使用 wx.pageScrollTo 方法将页面滚动到锚点位置
-        wx.pageScrollTo({
-          scrollTop: scrollTop,
-          duration: 300, // 滚动动画的持续时间，单位为毫秒
-        });
-      }
+  scrollToAnchor: function () {
+    wx.navigateTo({
+      url: "/pages/chatBot/chatBot",
     });
   },
   copyUrl: function () {
