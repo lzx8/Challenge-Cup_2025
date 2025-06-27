@@ -11,6 +11,7 @@
 ======
 
 #### 开发准备：
+##### 小程序开发管理权限：张洲耒 刘卓昕 小程序体验权限：彭晓纯
 1、https://developers.weixin.qq.com/miniprogram/dev/devtools/ext.html 下载微信开发者工具（也可在vscode里自己弄微信小程序模拟器，有点麻烦）
 
 2、APPID：wx6b3c93505c5f4d2c

@@ -194,3 +194,20 @@ input {
   flex: 1;
   margin-right: 20rpx;
 }
+
+.component-btn-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32rpx;
+  margin: 32rpx 0;
+  z-index: 10;
+  background: #fff;
+  min-height: 60rpx;
+}
+
+button {
+  min-width: 180rpx;
+  height: 60rpx;
+  font-size: 28rpx;
+}
