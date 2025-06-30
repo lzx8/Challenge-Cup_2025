@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/ai/ai",
     "pages/me/me",
     "pages/addCgi/addCgi",
     "pages/destination/destination",
@@ -11,7 +12,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#5fca9c",
-    "navigationBarTitleText": "旅行呱",
+    "navigationBarTitleText": "恩施旅游",
     "navigationBarTextStyle": "white",
     "navigationStyle": "default",
     "enablePullDownRefresh": true,

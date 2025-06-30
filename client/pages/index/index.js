@@ -167,7 +167,12 @@ Page({
         }
       ]
     },
-
+    // 点击按钮跳转到 AI 页面
+    goToAI() {
+      wx.navigateTo({
+        url: '/pages/ai/ai'
+      });
+    },
     loadMore:function(){
       const loadTimes = this.data.loadTimes;
       const perLoad = this.data.perLoad;
