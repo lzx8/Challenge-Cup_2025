@@ -1,0 +1,31 @@
+.loading-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.cover-img {
+  width: 80vw;
+  height: 60vw;
+  margin-bottom: 60rpx;
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 32rpx #eee;
+}
+.skip-btn {
+  position: fixed;
+  right: 48rpx;
+  bottom: 48rpx;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  padding: 18rpx 40rpx;
+  border-radius: 40rpx;
+  font-size: 30rpx;
+  z-index: 10;
+  box-shadow: 0 4rpx 16rpx #bbb;
+}

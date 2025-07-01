@@ -1,15 +1,12 @@
 <!--index.wxml-->
 <view class='container'>
   <view class='header'>
-  <navigator url="../search/search" open-type="navigate" class='searchBar'>
-      <icon type="search" size='16'/>
-      <text>赶快输入目的地~</text>
-  </navigator>
-</view>
- <!-- 数字人助手按钮（带外发光+挥手） -->
-<view class="avatar-btn" bindtap="goToAI">
-  <image src="/assets/avatar1.jpg" class="avatar-img" />
-  <text>恩施小导游</text>
- 
-</view>
+    <navigator url="../search/search" open-type="navigate" class='searchBar'>
+        <icon type="search" size='16'/>
+        <text>赶快输入目的地~</text>
+    </navigator>
+  </view>
+  <!-- 首页主展示图片 -->
+  <image src="/assets/首页.png" class="main-img" mode="widthFix" />
+  <!-- 数字人助手按钮已移至AI导游页面 -->
 </view>

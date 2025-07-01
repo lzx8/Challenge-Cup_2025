@@ -1,5 +1,8 @@
 // pages/destination/destination.js
 Page({
+  goToAI() {
+    wx.navigateTo({ url: '/pages/ai/ai' });
+  },
 
   /**
    * 页面的初始数据

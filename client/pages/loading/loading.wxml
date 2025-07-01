@@ -1,0 +1,4 @@
+<view class="loading-container">
+  <image class="cover-img" src="/assets/封面.png" mode="aspectFill" style="width:100vw;height:100vh;position:fixed;top:0;left:0;z-index:0;" />
+  <view class="skip-btn" bindtap="skip">跳过 {{countdown}}s</view>
+</view>

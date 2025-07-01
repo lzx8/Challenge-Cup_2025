@@ -1,7 +1,8 @@
 <!--pages/me/me.wxml-->
 <view class='container'>
   <view class='userInfo'>
-    <image src='{{userImg}}'/>
+    <!-- "我的"界面头像，优先用用户头像，否则用默认me.png -->
+    <image src='{{userImg ? userImg : "/assets/me.png"}}' />
     <text>{{userName}}</text>
   </view>
 

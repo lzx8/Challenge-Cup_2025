@@ -1,5 +1,9 @@
 <!--pages/destination/destination.wxml-->
 <view class='container'>
+  <!-- 数字人助手功能区（直接嵌入web-view数字人） -->
+  <view class="ai-section">
+    <web-view src="https://appbuilder.baidu.com/s/zCGaFmRS" class="ai-webview" />
+  </view>
   <swiper class='header' indicator-dots="{{true}}" indicator-color="rgba(255,255,255,0.3)" indicator-active-color="#5fca9c"
     autoplay="{{false}}" duration="500" circular="{{true}}" >
     <swiper-item class="swiperItem">

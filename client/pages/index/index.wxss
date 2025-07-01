@@ -483,3 +483,15 @@
   25%     { transform: rotate(-20deg); }
   75%     { transform: rotate(20deg); }
 } */
+
+.nav-img {
+  height: 60rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.main-img {
+  width: 100%;
+  margin: 20rpx 0;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 16rpx #eee;
+}

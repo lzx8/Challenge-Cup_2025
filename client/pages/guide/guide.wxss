@@ -1,0 +1,25 @@
+.guide-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #f6f6f6;
+}
+.guide-icon {
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 80rpx;
+}
+.guide-title {
+  font-size: 40rpx;
+  color: #5fca9c;
+  margin: 40rpx 0 20rpx 0;
+  font-weight: bold;
+}
+.guide-desc {
+  font-size: 28rpx;
+  color: #888;
+  text-align: center;
+  margin: 0 40rpx;
+}

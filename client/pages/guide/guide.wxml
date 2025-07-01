@@ -1,0 +1,6 @@
+<!-- pages/guide/guide.wxml -->
+<view class="guide-container">
+  <image src="../../image/导览.png" class="guide-icon" mode="aspectFit" />
+  <view class="guide-title">导览</view>
+  <view class="guide-desc">这里是导览页面，你可以在这里添加相关内容。</view>
+</view>
