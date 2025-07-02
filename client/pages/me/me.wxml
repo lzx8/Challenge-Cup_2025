@@ -1,33 +1,16 @@
 <!--pages/me/me.wxml-->
-<view class='container'>
+<view class='container me-bg'>
   <view class='userInfo'>
-    <!-- "我的"界面头像，优先用用户头像，否则用默认me.png -->
-    <image src='{{userImg ? userImg : "/assets/me.png"}}' />
-    <text>{{userName}}</text>
-  </view>
-
-  <view class='normalBar' bindtap='chooseImg'>
-    <text>选择、预览图片测试</text><text>></text>
-  </view>
-  <view class='imgList'>
-    <view class='imgBox' wx:for="{{uploadImgList}}" wx:key="{{item}}">
-      <image data-img='{{item}}' catchtap='previewImg' src="{{item}}"/>
-      <icon type="clear" size="20" color="#f76260" catchtap='deleteImg' data-img='{{item}}'/>
+    <image class='avatar' src='{{userImg ? userImg : "/assets/me.png"}}' />
+    <view class='userNameBox'>
+      <text class='userName'>{{userName ? userName : ''}}</text>
     </view>
   </view>
 
-  <view class='normalBar'>
-    <text>录音测试</text><text>></text>
+  <view class='welcome-ellipse' style="width: 225rpx; display: flex; box-sizing: border-box">
+    <text>欢迎来到恩施</text>
   </view>
-  <view class='controlBox'>
-    <view catchtap='startRecord'>开始</view>
-    <view catchtap='pauseRecord' wx:if="{{!pausing}}">暂停</view>
-    <view catchtap='resumeRecord' wx:else>继续</view>
-    <view catchtap='stopRecord'>停止</view>
-    <view catchtap='playRecord' wx:if="{{recordFilePath.length>0}}">播放录音</view>
-  </view>
-
-  <view class='welcome'>
-    <text>欢迎来到旅行呱~嘎嘎嘎</text>
+  <view class="logout-bar">
+    <button class="logout-btn" bindtap="logout">退出登录</button>
   </view>
 </view>

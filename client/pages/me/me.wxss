@@ -1,22 +1,88 @@
-/* pages/me/me.wxss */
-.userInfo{
-  width: 100%;
-  height: 220rpx;
+/* 退出登录按钮样式 */
+.logout-bar {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  bottom: 120rpx;
+  z-index: 10;
+}
+.logout-btn {
+  width: 80vw;
+  height: 88rpx;
+  background: #fff;
+  color: #428774;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 4rpx 24rpx #b2e0d2;
+  margin: 0 auto;
+}
+/* 背景色与头像色一致 */
+ .me-bg {
+  background: #428774;
+  min-height: 100vh;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80rpx;
+}
+.avatar {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  background: none;
+  box-shadow: none;
+}
+.userNameBox {
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: none;
+  box-shadow: none;
+}
+.userName {
+  font-size: 38rpx;
+  color: #fff;
+  font-weight: bold;
+}
+.loginBtn {
+  margin-top: 20rpx;
+  background: #5fca9c;
+  color: #fff;
+  border-radius: 40rpx;
+  font-size: 28rpx;
+  padding: 12rpx 60rpx;
+  border: none;
+}
+.welcome-ellipse {
+  margin: 60rpx auto 0 auto;
+  width: 80vw;
+  height: 60rpx;
+  background: rgba(255,255,255,0.8);
+  border-radius: 40rpx/30rpx;
   display: flex;
   align-items: center;
-  background-color: #5fca9c;
-  padding-left: 40rpx;
+  justify-content: center;
+  box-shadow: 0 2rpx 12rpx #d2f2e6;
 }
-.userInfo image{
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 50%;
+.welcome-ellipse text {
+  color: #222;
+  font-size: 26rpx;
+  letter-spacing: 2rpx;
 }
-.userInfo text{
-  margin-left: 30rpx;
-  font-size: 36rpx;
-  color: white;
-}
+/* pages/me/me.wxss */
+
 
 .normalBar{
   width: 100%;
