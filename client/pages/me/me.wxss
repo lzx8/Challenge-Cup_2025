@@ -81,6 +81,27 @@
   font-size: 26rpx;
   letter-spacing: 2rpx;
 }
+/* 三个功能框样式 */
+.feature-box-group {
+  width: 80vw;
+  margin: 40rpx auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+.feature-box {
+  width: 100%;
+  height: 90rpx;
+  background: rgba(255,255,255,0.8);
+  border-radius: 40rpx/30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2rpx 12rpx #d2f2e6;
+  font-size: 30rpx;
+  color: #222;
+  font-weight: bold;
+}
 /* pages/me/me.wxss */
 
 

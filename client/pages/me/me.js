@@ -14,6 +14,24 @@ Page({
       });
     }
   },
+  // 跳转 web-view 功能一
+  goWeb1: function() {
+    wx.navigateTo({
+      url: '/pages/webview/webview?title=项目介绍&url=https://github.com/lzx8/Challenge-Cup_2025/tree/main'
+    });
+  },
+  // 跳转 web-view 功能二
+  goWeb2: function() {
+    wx.navigateTo({
+      url: '/pages/webview/webview?title=假期安全&url=https://mp.weixin.qq.com/s?__biz=MzI0NDA0NTM5OQ==&mid=2651627131&idx=1&sn=f8e16ac9bac8a492dcaa75a3180d26ca&chksm=f31e530d4c21b4eee76b75a706e4ece937692afd78381849d15fd240f8039e86aa129f936ab9&scene=27'
+    });
+  },
+  // 跳转 web-view 功能三
+  goWeb3: function() {
+    wx.navigateTo({
+      url: '/pages/webview/webview?title=紧急求助&url=https://baijiahao.baidu.com/s?id=1826903960265743923&wfr=spider&for=pcn'
+    });
+  },
   data: {
     userImg: '',
     userName: '',
