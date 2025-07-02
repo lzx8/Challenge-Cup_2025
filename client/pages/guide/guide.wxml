@@ -1,3 +1,18 @@
+<!-- 悬浮多语言切换按钮 -->
+<view class="lang-float-btn" catchtap="onLangBtnTap">
+  <image class="lang-float-img" src="/assets/lang-btn.png" mode="aspectFill" />
+</view>
+<!-- 语言选择弹窗 -->
+<view wx:if="{{showLangPopup}}" class="lang-popup-mask" catchtap="closeLangPopup">
+  <view class="lang-popup" catchtap="stopPopup">
+    <view class="lang-title">选择语言</view>
+    <view class="lang-list">
+      <view wx:for="{{langList}}" wx:key="{{item.code}}" class="lang-item" catchtap="chooseLang" data-code="{{item.code}}">
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</view>
 <!-- 导览页面嵌入网页 -->
 <web-view src="{{webUrl}}"></web-view>
 <!-- pages/guide/guide.wxml -->

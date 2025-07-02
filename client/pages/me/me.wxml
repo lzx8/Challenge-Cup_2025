@@ -4,6 +4,7 @@
     <image class='avatar' src='{{userImg ? userImg : "/assets/me.png"}}' />
     <view class='userNameBox'>
       <text class='userName'>{{userName ? userName : ''}}</text>
+      <button wx:if="{{!userName}}" class="loginBtn" open-type="getUserProfile" bindgetuserinfo="onLogin">请登录</button>
     </view>
   </view>
 

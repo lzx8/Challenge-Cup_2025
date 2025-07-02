@@ -1,10 +1,19 @@
-
 // pages/me/me.js
 const util = require('../../utils/util.js');
 const recorderManager = wx.getRecorderManager();
 const innerAudioContext = wx.createInnerAudioContext();
 
 Page({
+  // 微信登录授权
+  onLogin: function(e) {
+    if (e.detail && e.detail.userInfo) {
+      const userInfo = e.detail.userInfo;
+      this.setData({
+        userImg: userInfo.avatarUrl,
+        userName: userInfo.nickName
+      });
+    }
+  },
   data: {
     userImg: '',
     userName: '',
@@ -16,7 +25,7 @@ Page({
   // 退出登录
   logout: function() {
     this.setData({
-      userImg: '',
+      userImg: null,
       userName: ''
     });
     wx.showToast({

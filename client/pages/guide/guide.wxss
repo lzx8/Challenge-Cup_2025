@@ -1,3 +1,64 @@
+/* 悬浮多语言按钮样式 */
+.lang-float-btn {
+  position: fixed;
+  right: 40rpx;
+  bottom: 180rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4rpx 24rpx #b2e0d2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+.lang-float-img {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+/* 语言弹窗样式 */
+.lang-popup-mask {
+  position: fixed;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lang-popup {
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 40rpx 60rpx;
+  min-width: 400rpx;
+  box-shadow: 0 8rpx 32rpx #b2e0d2;
+}
+.lang-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 30rpx;
+  color: #428774;
+  text-align: center;
+}
+.lang-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+.lang-item {
+  font-size: 30rpx;
+  color: #333;
+  background: #f6f6f6;
+  border-radius: 16rpx;
+  padding: 18rpx 0;
+  text-align: center;
+  transition: background 0.2s;
+}
+.lang-item:active {
+  background: #e0f7ef;
+}
 .guide-container {
   display: flex;
   flex-direction: column;
