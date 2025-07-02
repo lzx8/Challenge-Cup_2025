@@ -167,10 +167,55 @@ Page({
         }
       ]
     },
-    // 点击按钮跳转到 AI 页面
-    goToAI() {
+    // 首页图片热点跳转到各自网页
+    goPengjiazai() {
       wx.navigateTo({
-        url: '/pages/ai/ai'
+        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('彭家寨')
+      });
+    },
+    goSuobuyashilin() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('梭布垭石林')
+      });
+    },
+    goShennongxi() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('神农溪')
+      });
+    },
+    goTusicheng() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('土司城')
+      });
+    },
+    goHuangheqiaofenglin() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('黄鹤桥峰林')
+      });
+    },
+    goNuercheng() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('女儿城')
+      });
+    },
+    goLonglingong() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('龙麟宫')
+      });
+    },
+    goTenglongdong() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('腾龙洞')
+      });
+    },
+    goDaxiagu() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('大峡谷')
+      });
+    },
+    goQiyueshan() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('齐岳山')
       });
     },
     loadMore:function(){

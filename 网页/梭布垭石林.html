@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恩施梭布垭石林 - 奇幻石林世界</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏样式 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1e88e5;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #1e88e5;
+        }
+
+        /* 英雄区域样式 */
+        .hero {
+            height: 500px;
+            background-image: url("https://i.postimg.cc/L86NRtdH/3d1d84634c37bf0086af152ee0d4ccab.jpg");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #1e88e5;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #1565c0;
+        }
+
+        /* 照片轮播区样式 */
+        .carousel-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: #1e88e5;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            height: 500px;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+
+        .carousel-control {
+            background-color: rgba(255, 255, 255, 0.7);
+            color: #333;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            transition: background-color 0.3s;
+            border: none;
+        }
+
+        .carousel-control:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .indicator.active {
+            background-color: #fff;
+        }
+
+        /* 景点介绍样式 */
+        .introduction-section {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+
+        .introduction-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .introduction-text h3 {
+            font-size: 28px;
+            color: #1e88e5;
+            margin-bottom: 20px;
+        }
+
+        .introduction-text p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .introduction-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 旅游攻略样式 */
+        .guide-section {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .tabs {
+            display: flex;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 30px;
+        }
+
+        .tab-btn {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #1e88e5;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .tab-btn.active {
+            color: #1e88e5;
+        }
+
+        .tab-btn.active::after {
+            transform: scaleX(1);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .guide-item {
+            margin-bottom: 30px;
+        }
+
+        .guide-item h4 {
+            font-size: 20px;
+            color: #1e88e5;
+            margin-bottom: 10px;
+        }
+
+        .guide-item p {
+            margin-bottom: 10px;
+        }
+
+        .guide-item ul {
+            padding-left: 20px;
+        }
+
+        .guide-item li {
+            margin-bottom: 8px;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: #1e88e5;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #fff;
+        }
+
+        .footer-column p {
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: #bbdefb;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #fff;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .introduction-content {
+                grid-template-columns: 1fr;
+            }
+
+            .introduction-image {
+                order: -1;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">梭布垭石林</div>
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#photos">美景展示</a></li>
+                    <li><a href="#introduction">景点介绍</a></li>
+                    <li><a href="#guide">旅游攻略</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>梭布垭石林 - 奇幻石林世界</h1>
+            <p>探秘亿万年地质奇观，感受大自然的鬼斧神工，体验土家族独特民俗文化</p>
+            <a href="#photos" class="btn">探索美景</a>
+        </div>
+    </section>
+
+    <!-- 照片轮播区 -->
+    <section class="carousel-section" id="photos">
+        <div class="container">
+            <div class="section-title">
+                <h2>美景展示</h2>
+                <p>梭布垭石林以其独特的喀斯特地貌和奇特的石林景观闻名于世，被誉为"天然氧吧"和"戴冠石林"</p>
+            </div>
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="https://i.postimg.cc/pTbW5Ytj/R-C.jpg" alt="梭布垭石林全景">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.postimg.cc/vHWNGr0j/12ab7d68e0371e705cad99c46e4e4df9-jpg-r-720x480x95-b2b29ce5.jpg" alt="戴冠石林">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.postimg.cc/8552577v/c17b-kffctcc7845822.jpg" alt="石林奇观">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.postimg.cc/kXpv3BmZ/R-C-1.jpg" alt="云雾石林">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.postimg.cc/Hnfn3GqS/R-C-2.jpg" alt="四季石林">
+                    </div>
+                </div>
+                <div class="carousel-controls">
+                    <button class="carousel-control prev">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="carousel-control next">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="carousel-indicators">
+                    <span class="indicator active" data-index="0"></span>
+                    <span class="indicator" data-index="1"></span>
+                    <span class="indicator" data-index="2"></span>
+                    <span class="indicator" data-index="3"></span>
+                    <span class="indicator" data-index="4"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 景点介绍 -->
+    <section class="introduction-section" id="introduction">
+        <div class="container">
+            <div class="section-title">
+                <h2>景点介绍</h2>
+                <p>梭布垭石林位于湖北省恩施土家族苗族自治州恩施市太阳河乡，是鄂西南地区独特的自然景观</p>
+            </div>
+            <div class="introduction-content">
+                <div class="introduction-text">
+                    <h3>亿万年地质奇观</h3>
+                    <p>梭布垭石林形成于距今约4.5亿年前的奥陶纪时期，是典型的喀斯特地貌景观。整个石林景区面积约20平方公里，由多个石林群组成，石柱林立，形态各异，有的如人，有的如兽，有的如物，栩栩如生。</p>
+                    <p>梭布垭石林最独特的特点是"戴冠石林"，石柱顶部多呈帽状或蘑菇状，这是由于长期风化剥蚀和流水侵蚀形成的，在全国石林景观中独树一帜。</p>
+                    <p>景区内还有丰富的植物资源，森林覆盖率高，空气清新，负氧离子含量高，被誉为"天然氧吧"。</p>
+                    <p>除了自然景观，梭布垭石林还融入了丰富的土家族文化元素，游客在欣赏自然美景的同时，还能体验独特的民族风情。</p>
+                </div>
+                <div class="introduction-image">
+                    <img src="https://i.postimg.cc/NFc2w2G6/6741-kffctcc7845379.jpg" alt="梭布垭石林全景">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 旅游攻略 -->
+    <section class="guide-section" id="guide">
+        <div class="container">
+            <div class="section-title">
+                <h2>旅游攻略</h2>
+                <p>为您提供梭布垭石林旅游的实用指南，让您的旅程更加愉快</p>
+            </div>
+            <div class="tabs">
+                <button class="tab-btn active" data-tab="traffic">交通指南</button>
+                <button class="tab-btn" data-tab="food">美食推荐</button>
+                <button class="tab-btn" data-tab="accommodation">住宿推荐</button>
+                <button class="tab-btn" data-tab="itinerary">行程建议</button>
+            </div>
+            <div class="tab-content active" id="traffic">
+                <div class="guide-item">
+                    <h4>外部交通</h4>
+                    <p>梭布垭石林距离恩施市区约40公里，交通较为便利。</p>
+                    <ul>
+                        <li><strong>自驾：</strong>从恩施市区出发，沿恩施-利川方向行驶，约40分钟车程即可到达。</li>
+                        <li><strong>公共交通：</strong>在恩施汽车客运站乘坐前往太阳河乡的班车，在梭布垭石林站下车。</li>
+                    </ul>
+                </div>
+                <div class="guide-item">
+                    <h4>景区内交通</h4>
+                    <p>景区内提供观光车服务，可前往主要景点，票价20元/人。</p>
+                    <p>景区内部分路段需要步行，建议穿着舒适的鞋子。</p>
+                </div>
+                <div class="guide-item">
+                    <h4>最佳游览时间</h4>
+                    <p>四季皆宜，但春秋两季气候最为宜人。</p>
+                    <ul>
+                        <li><strong>春季：</strong>3-5月，山花烂漫，景色宜人</li>
+                        <li><strong>夏季：</strong>6-8月，绿树成荫，避暑胜地</li>
+                        <li><strong>秋季：</strong>9-11月，层林尽染，色彩斑斓</li>
+                        <li><strong>冬季：</strong>12-2月，雪后石林，别有韵味</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-content" id="food">
+                <div class="guide-item">
+                    <h4>景区内美食</h4>
+                    <p>景区内有多家农家乐和小吃摊，提供地道的土家族美食。</p>
+                    <ul>
+                        <li><strong>土家腊肉：</strong>选用当地土猪制作，肥而不腻，香醇可口</li>
+                        <li><strong>合渣：</strong>土家族传统食品，用黄豆制作，营养丰富</li>
+                        <li><strong>炕土豆：</strong>用柴火炕制，外焦里嫩，香气扑鼻</li>
+                        <li><strong>土家社饭：</strong>用野菜和糯米制作，清香可口</li>
+                    </ul>
+                </div>
+                <div class="guide-item">
+                    <h4>周边美食推荐</h4>
+                    <p>若时间充裕，可前往恩施市区品尝更多特色美食。</p>
+                    <ul>
+                        <li><strong>恩施小土豆：</strong>当地特色小吃，软糯香甜</li>
+                        <li><strong>恩施玉露：</strong>名优绿茶，清香四溢</li>
+                        <li><strong>恩施炕饼：</strong>土家族传统面食，外酥内软</li>
+                        <li><strong>土家油茶汤：</strong>传统饮品，提神醒脑</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-content" id="accommodation">
+                <div class="guide-item">
+                    <h4>景区内住宿</h4>
+                    <p>景区内有多家农家乐提供住宿，价格实惠，环境舒适。</p>
+                    <ul>
+                        <li><strong>梭布垭石林农家乐：</strong>位于景区入口处，价格约80-150元/间</li>
+                        <li><strong>石林山庄：</strong>设施较为完善，价格约120-200元/间</li>
+                        <li><strong>云上石林客栈：</strong>特色民宿，价格约150-300元/间</li>
+                    </ul>
+                </div>
+                <div class="guide-item">
+                    <h4>周边住宿推荐</h4>
+                    <p>恩施市区住宿选择更多，设施更完善。</p>
+                    <ul>
+                        <li><strong>恩施大酒店：</strong>四星级酒店，设施齐全，价格约300-500元/间</li>
+                        <li><strong>恩施土家风情客栈：</strong>特色民宿，价格约150-300元/间</li>
+                        <li><strong>恩施国际大酒店：</strong>高档酒店，价格约400-600元/间</li>
+                    </ul>
+                    <p>建议提前预订，尤其是节假日和旅游旺季。</p>
+                </div>
+            </div>
+            <div class="tab-content" id="itinerary">
+                <div class="guide-item">
+                    <h4>一日游行程</h4>
+                    <p>适合时间有限的游客，可全面体验梭布垭石林的主要景点。</p>
+                    <ul>
+                        <li><strong>上午：</strong>8:00-9:00 到达景区，购票入园；9:00-11:30 游览戴冠石林、一线天、石王点将台等主要景点</li>
+                        <li><strong>中午：</strong>11:30-13:30 在景区内用餐休息</li>
+                        <li><strong>下午：</strong>13:30-16:00 游览七层楼、五指山、仙女洞等景点；16:00-17:00 返程</li>
+                    </ul>
+                </div>
+                <div class="guide-item">
+                    <h4>两日游行程</h4>
+                    <p>适合想深度体验梭布垭石林及周边景点的游客。</p>
+                    <ul>
+                        <li><strong>第一天：</strong>上午游览主要景点；下午在景区内或周边游玩；晚上入住景区附近农家乐，品尝土家美食</li>
+                        <li><strong>第二天：</strong>上午继续游览未参观的景点；中午返程；或前往周边的恩施大峡谷、土司城等景点</li>
+                    </ul>
+                </div>
+                <div class="guide-item">
+                    <h4>注意事项</h4>
+                    <ul>
+                        <li>景区内部分路段较为陡峭，请穿防滑鞋，注意安全</li>
+                        <li>夏季游览注意防晒，带上雨具</li>
+                        <li>尊重当地少数民族的风俗习惯</li>
+                        <li>保护环境，不乱扔垃圾</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>关于梭布垭石林</h3>
+                    <p>梭布垭石林位于湖北省恩施土家族苗族自治州恩施市太阳河乡，是鄂西南地区独特的自然景观，以其独特的喀斯特地貌和奇特的石林景观闻名于世。</p>
+                    <p>这里不仅有着壮丽的自然风光，还融入了丰富的土家族文化元素，是旅游、休闲、度假的理想之地。</p>
+                </div>
+                <div class="footer-column">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#photos">美景展示</a></li>
+                        <li><a href="#introduction">景点介绍</a></li>
+                        <li><a href="#guide">旅游攻略</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>旅游资讯</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://www.dahepiao.com/lvyounews1/20220311259577.html">大河票务</a></li>
+                        <li><a href="https://you.ctrip.com/sight/enshicity1446196/51364.html">携程旅游</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 智慧恩施</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 照片轮播功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 轮播图相关变量
+            const carousel = document.querySelector('.carousel');
+            const carouselInner = carousel.querySelector('.carousel-inner');
+            const carouselItems = carousel.querySelectorAll('.carousel-item');
+            const prevBtn = carousel.querySelector('.prev');
+            const nextBtn = carousel.querySelector('.next');
+            const indicators = carousel.querySelectorAll('.indicator');
+            
+            let currentIndex = 0;
+            const itemCount = carouselItems.length;
+            
+            // 更新轮播图位置
+            function updateCarousel() {
+                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // 更新指示器状态
+                indicators.forEach((indicator, index) => {
+                    if (index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            // 下一张
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % itemCount;
+                updateCarousel();
+            }
+            
+            // 上一张
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+                updateCarousel();
+            }
+            
+            // 点击指示器切换
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+            
+            // 按钮点击事件
+            prevBtn.addEventListener('click', prevSlide);
+            nextBtn.addEventListener('click', nextSlide);
+            
+            // 自动轮播
+            let interval = setInterval(nextSlide, 5000);
+            
+            // 鼠标悬停时暂停轮播
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(interval);
+            });
+            
+            // 鼠标离开时恢复轮播
+            carousel.addEventListener('mouseleave', () => {
+                interval = setInterval(nextSlide, 5000);
+            });
+            
+            // 标签页切换功能
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // 移除所有活动状态
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // 添加当前活动状态
+                    btn.classList.add('active');
+                    document.getElementById(btn.dataset.tab).classList.add('active');
+                });
+            });
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

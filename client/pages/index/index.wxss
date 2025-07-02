@@ -1,3 +1,79 @@
+/* 新增各景点热点区域坐标（需根据实际图片微调） */
+.spot-tusicheng {
+  left: 12%;
+  top: 70%;
+  width: 16%;
+  height: 10%;
+}
+.spot-huangheqiaofenglin {
+  left: 38%;
+  top: 58%;
+  width: 16%;
+  height: 10%;
+}
+.spot-nuercheng {
+  left: 68%;
+  top: 76%;
+  width: 16%;
+  height: 10%;
+}
+.spot-longlingong {
+  left: 12%;
+  top: 84%;
+  width: 16%;
+  height: 10%;
+}
+.spot-tenglongdong {
+  left: 38%;
+  top: 90%;
+  width: 16%;
+  height: 10%;
+}
+.spot-daxiagu {
+  left: 68%;
+  top: 36%;
+  width: 16%;
+  height: 10%;
+}
+.spot-qiyueshan {
+  left: 68%;
+  top: 20%;
+  width: 16%;
+  height: 10%;
+}
+/* 首页主展示图片热点区域样式 */
+.main-img-hot {
+  position: relative;
+  width: 100%;
+}
+.hot-spot {
+  position: absolute;
+  z-index: 10;
+  background: rgba(0, 153, 255, 0.3); /* 半透明蓝色，便于调试 */
+  border: 2px solid #007aff;
+  border-radius: 12rpx;
+  transition: background 0.2s;
+}
+/* 以下坐标需根据实际图片调整，示例为大致区域 */
+/* 调整热点区域到首页各景点小图片上方，以下坐标需根据实际图片微调 */
+.spot-pengjiazai {
+  left: 12%;
+  top: 56%;
+  width: 16%;
+  height: 10%;
+}
+.spot-suobuyashilin {
+  left: 38%;
+  top: 44%;
+  width: 16%;
+  height: 10%;
+}
+.spot-shennongxi {
+  left: 68%;
+  top: 62%;
+  width: 16%;
+  height: 10%;
+}
 /**index.wxss**/
 .header{
   background-color: #5fca9c;

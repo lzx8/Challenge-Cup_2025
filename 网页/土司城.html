@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>恩施土司城 · 土司王朝文化之旅</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <style>
+    /* 通用样式 */
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Microsoft YaHei",sans-serif;}
+    body{background:#f8f9fa;color:#333;line-height:1.6;}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px;}
+    a{text-decoration:none;color:inherit;}
+    header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.1);position:sticky;top:0;z-index:100;}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:15px 0;}
+    .logo{font-size:24px;font-weight:700;color:#1e88e5;}
+    .nav-links{display:flex;gap:30px;list-style:none;}
+    .nav-links a{color:#333;font-weight:500;transition:.3s;}
+    .nav-links a:hover{color:#1e88e5;}
+
+    /* 英雄区域 */
+    .hero{height:500px;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;position:relative;}
+    .hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.4);}
+    .hero-content{position:relative;z-index:1;}
+    .hero h1{font-size:3rem;text-shadow:2px 2px 4px rgba(0,0,0,.5);margin-bottom:1rem;}
+    .hero p{font-size:1.1rem;text-shadow:1px 1px 2px rgba(0,0,0,.5);margin-bottom:1.5rem;}
+    .btn{background:#1e88e5;color:#fff;padding:12px 30px;border-radius:30px;font-weight:700;transition:.3s;}
+    .btn:hover{background:#1565c0;}
+
+    /* 轮播区 */
+    .carousel-section{padding:5rem 0;background:#fff;}
+    .section-title{text-align:center;margin-bottom:3rem;}
+    .section-title h2{font-size:2.25rem;color:#1e88e5;margin-bottom:0.75rem;}
+    .section-title p{font-size:1.1rem;color:#666;max-width:700px;margin:0 auto;}
+    .carousel{position:relative;overflow:hidden;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);}
+    .carousel-inner{display:flex;transition:transform .5s ease;}
+    .carousel-item{min-width:100%;height:400px;}
+    .carousel-item img{width:100%;height:100%;object-fit:cover;}
+    .carousel-controls{position:absolute;top:50%;left:0;width:100%;display:flex;justify-content:space-between;transform:translateY(-50%);}
+    .carousel-control{background:rgba(255,255,255,.7);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;transition:.3s;}
+    .carousel-control:hover{background:rgba(255,255,255,.9);}
+    .carousel-indicators{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;}
+    .indicator{width:.75rem;height:.75rem;border-radius:50%;background:rgba(255,255,255,.5);cursor:pointer;transition:.3s;}
+    .indicator.active{background:#fff;}
+
+    /* 介绍区 */
+    .introduction-section{padding:5rem 0;background:#f8f9fa;}
+    .introduction-content{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+    .introduction-text h3{font-size:1.75rem;color:#1e88e5;margin-bottom:1rem;}
+    .introduction-text p{margin-bottom:1rem;font-size:1rem;color:#444;}
+    .introduction-image img{width:100%;border-radius:10px;box-shadow:0 5px 15px rgba(0,0,0,.1);}
+
+    /* 攻略Tabs */
+    .guide-section{padding:5rem 0;background:#fff;}
+    .tabs{display:flex;border-bottom:2px solid #eee;gap:1rem;margin-bottom:2rem;}
+    .tab-btn{position:relative;padding:0.75rem 2rem;background:none;border:none;font-size:1rem;color:#666;cursor:pointer;transition:.3s;}
+    .tab-btn.active{color:#1e88e5;}
+    .tab-btn.active::after{content:'';position:absolute;left:0;bottom:-2px;width:100%;height:3px;background:#1e88e5;}
+    .tab-content{display:none;animation:fadeIn .5s;}
+    .tab-content.active{display:block;}
+    @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+    .guide-item{margin-bottom:1.5rem;}
+    .guide-item h4{font-size:1.25rem;color:#1e88e5;margin-bottom:.5rem;}
+    .guide-item ul{padding-left:1.5rem;}
+    .guide-item li{margin-bottom:.5rem;}
+
+    /* 页脚 */
+    footer{background:#1e88e5;color:#fff;padding:4rem 0 2rem;}
+    .footer-content{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2rem;margin-bottom:2rem;}
+    .footer-column h3{font-size:1.25rem;margin-bottom:1rem;position:relative;padding-bottom:.5rem;}
+    .footer-column h3::after{content:'';position:absolute;left:0;bottom:0;width:50px;height:2px;background:#fff;}
+    .footer-links{list-style:none;}
+    .footer-links li{margin-bottom:.75rem;}
+    .footer-links a{transition:.3s;}
+    .footer-links a:hover{color:#bbdefb;}
+    .footer-bottom{text-align:center;padding-top:1rem;border-top:1px solid rgba(255,255,255,.2);font-size:.9rem;}
+
+    /* 响应式 */
+    @media(max-width:992px){.introduction-content{grid-template-columns:1fr;} .footer-content{grid-template-columns:1fr 1fr;}}
+    @media(max-width:768px){.hero h1{font-size:2.25rem;} .nav-links{display:none;} .footer-content{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo">恩施土司城</div>
+      <ul class="nav-links">
+        <li><a href="#home">首页</a></li>
+        <li><a href="#photos">美景</a></li>
+        <li><a href="#introduction">介绍</a></li>
+        <li><a href="#guide">攻略</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" id="home" style="background-image:url('https://i.postimg.cc/Dz4sjPtb/t019bd7015b2039d28e.jpg');">
+  <div class="hero-content">
+    <h1>恩施土司城 · 土司王朝文化之旅</h1>
+    <p>湖北“土家小故宫”，领略土司建筑与历史传承</p>
+    <a href="#photos" class="btn">探索美景</a>
+  </div>
+</section>
+
+<section class="carousel-section" id="photos">
+  <div class="container">
+    <div class="section-title">
+      <h2>美景展示</h2>
+      <p>占地300余亩，仿唐崖土司城建造，集门楼、九进堂、鼓楼、吊脚楼等30余景点于一体</p>
+    </div>
+    <div class="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item"><img src="https://i.postimg.cc/W3nHzVXV/v2-9f6b97a8895cc57967dfd4974b85292c-r.jpg" alt="土司城门楼"></div>
+        <div class="carousel-item"><img src="https://i.postimg.cc/76D35TWG/R-C.jpg" alt="九进堂全景"></div>
+        <div class="carousel-item"><img src="https://i.postimg.cc/bJgL9TXf/R-C-1.jpg" alt="风雨桥与鼓楼"></div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-control prev"><i class="bi bi-chevron-left"></i></button>
+        <button class="carousel-control next"><i class="bi bi-chevron-right"></i></button>
+      </div>
+      <div class="carousel-indicators">
+        <span class="indicator active" data-index="0"></span>
+        <span class="indicator" data-index="1"></span>
+        <span class="indicator" data-index="2"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="introduction-section" id="introduction">
+  <div class="container">
+    <div class="section-title">
+      <h2>景点介绍</h2>
+      <p>全国规模最大、最宏伟的土家族土司文化标志性建筑群</p>
+    </div>
+    <div class="introduction-content">
+      <div class="introduction-text">
+        <h3>土司门楼与九进堂</h3>
+        <p>门楼高25米，纯榫卯结构，200扇门、189块雕花，象征“福在眼前”。</p>
+        <p>九进堂由333根柱、330道门、数千雕花木窗构成，堂堂正气，恢弘壮观。</p>
+        <p>景区内还有鼓楼、钟楼、廩君祠、校场、侗族风雨桥等多样传统景观。</p>
+      </div>
+      <div class="introduction-image">
+        <img src="https://i.postimg.cc/nVsn5wzz/134749969-1551177555827-mthumb.jpg" alt="九进堂正面图">
+      </div>
+    </div>
+  </div>
+</section>
+
+   <!-- 旅游攻略 -->
+    <section id="guide" class="guide-section">
+        <h2 class="section-title">旅游攻略</h2>
+        <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="traffic">交通指南</button>
+            <button class="tab-btn" data-tab="food">美食推荐</button>
+            <button class="tab-btn" data-tab="accommodation">住宿推荐</button>
+            <button class="tab-btn" data-tab="itinerary">行程建议</button>
+        </div>
+        
+        <div class="tab-content active" id="traffic">
+            <div class="guide-item">
+                <h3>外部交通</h3>
+                <p>恩施土司城位于恩施市城区，交通便利：</p>
+                <ul>
+                    <li>飞机：恩施许家坪机场，距离土司城约15公里，可乘坐机场大巴或出租车前往。</li>
+                    <li>火车：恩施火车站，距离土司城约5公里，可乘坐公交或出租车前往。</li>
+                    <li>自驾：导航至"恩施土司城"，有充足的停车场。</li>
+                </ul>
+            </div>
+            <div class="guide-item">
+                <h3>内部交通</h3>
+                <p>土司城内面积较大，游览方式多样：</p>
+                <ul>
+                    <li>步行：适合喜欢慢节奏的游客，可以仔细欣赏每个建筑细节。</li>
+                    <li>电瓶车：土司城内提供电瓶车服务，单程15元，往返25元。</li>
+                    <li>导览服务：可提前预约专业导游，提供更深入的文化讲解。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="food">
+            <div class="guide-item">
+                <h3>特色美食</h3>
+                <p>恩施土司城周边有许多特色餐厅，推荐以下美食：</p>
+                <ul>
+                    <li>土家腊肉：恩施特色传统美食，肉质鲜嫩，香味浓郁。</li>
+                    <li>合渣：土家族传统食品，由黄豆磨浆后煮制而成，口感细腻。</li>
+                    <li>土家社饭：用糯米、大米、野菜等混合蒸制，是土家族祭祀祖先的传统食品。</li>
+                    <li>咂酒：土家族传统饮品，用玉米、高粱等发酵而成，口感醇厚。</li>
+                </ul>
+            </div>
+            <div class="guide-item">
+                <h3>推荐餐厅</h3>
+                <ul>
+                    <li>土司御膳房：位于土司城内，提供正宗土家菜肴，环境古朴典雅。</li>
+                    <li>六角亭土家菜馆：距离土司城约1公里，价格实惠，菜品地道。</li>
+                    <li>清江源农家乐：提供农家风味，可体验土家族家庭聚餐氛围。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="accommodation">
+            <div class="guide-item">
+                <h3>周边住宿</h3>
+                <p>土司城周边有多种住宿选择，适合不同预算的游客：</p>
+                <ul>
+                    <li>土司城宾馆：位于土司城内，是体验土家族文化的好去处，价格约150-300元/晚。</li>
+                    <li>恩施六角亭酒店：距离土司城约2公里，交通便利，价格约200-500元/晚。</li>
+                    <li>恩施土家民宿：分布在土司城周边的土家族村落，可体验当地民风，价格约100-200元/晚。</li>
+                    <li>恩施城区酒店：各类星级酒店齐全，适合商务旅行者，价格约300-1000元/晚。</li>
+                </ul>
+            </div>
+            <div class="guide-item">
+                <h3>住宿小贴士</h3>
+                <ul>
+                    <li>旅游旺季（4-10月）建议提前预订住宿。</li>
+                    <li>土司城内住宿有限，如需更多选择，可考虑住在城区。</li>
+                    <li>民宿住宿建议提前联系确认，部分民宿可能需要步行一段距离到达土司城。</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="itinerary">
+            <div class="guide-item">
+                <h3>一日游行程</h3>
+                <p>如果时间有限，可以安排以下一日游行程：</p>
+                <ul>
+                    <li>上午（9:00-12:00）：参观土司王宫、土司王府、土司衙门等主要建筑，了解土司制度历史。</li>
+                    <li>中午（12:00-13:30）：在土司城内或周边餐厅用餐，品尝土家特色美食。</li>
+                    <li>下午（13:30-16:00）：参观土司祠堂、土司书院、土司城墙等建筑，参与土家族民俗表演。</li>
+                    <li>傍晚（16:00后）：返回市区或前往其他景点。</li>
+                </ul>
+            </div>
+            <div class="guide-item">
+                <h3>两日游行程</h3>
+                <p>如果时间充裕，建议安排两日游，深度体验土司文化：</p>
+                <ul>
+                    <li>第一天上午：参观土司城主要建筑群，了解土司制度历史。</li>
+                    <li>第一天下午：参与土家族民俗表演，学习土家织锦、银饰制作等传统工艺。</li>
+                    <li>第一天晚上：在土司城内或周边民宿住宿，体验土家族夜生活。</li>
+                    <li>第二天上午：参加土家族传统早茶，参观土司城周边的土家族村落。</li>
+                    <li>第二天下午：购买土家族特色手工艺品，结束行程。</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>关于土司城</h3>
+        <p>2002年开放，由苏州园林院设计，结合民间匠人建成，是展示土司文化的综合园林。</p>
+      </div>
+      <div class="footer-column">
+        <h3>快速导航</h3>
+        <ul class="footer-links">
+          <li><a href="#home">首页</a></li>
+          <li><a href="#photos">美景</a></li>
+          <li><a href="#introduction">介绍</a></li>
+          <li><a href="#guide">攻略</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+          <h3>旅行参考</h3>
+          <ul class="footer-links">
+            <li><a href="https://www.dahepiao.com/lvyounews1/20240524466317.html">大河票务</a></li>
+            <li><a href="https://you.ctrip.com/sight/enshicity1446196/51416.html">携程旅游</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">&copy; 2025 智慧恩施</div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // 轮播逻辑
+  const carousel = document.querySelector('.carousel');
+  const inner = carousel.querySelector('.carousel-inner');
+  const items = carousel.querySelectorAll('.carousel-item');
+  const prev = carousel.querySelector('.prev');
+  const next = carousel.querySelector('.next');
+  const dots = carousel.querySelectorAll('.indicator');
+  let idx = 0, len = items.length;
+  const update = () => {
+    inner.style.transform = `translateX(-${idx*100}%)`;
+    dots.forEach((d,i) => d.classList.toggle('active', i === idx));
+  };
+  prev.addEventListener('click', () => { idx = (idx-1+len)%len; update(); });
+  next.addEventListener('click', () => { idx = (idx+1)%len; update(); });
+  dots.forEach((d,i) => d.addEventListener('click', () => { idx = i; update(); }));
+  let timer = setInterval(() => { idx = (idx+1)%len; update(); }, 5000);
+  carousel.addEventListener('mouseenter', () => clearInterval(timer));
+  carousel.addEventListener('mouseleave', () => timer = setInterval(() => { idx = (idx+1)%len; update(); }, 5000));
+
+  // Tabs逻辑
+  const tabs = document.querySelectorAll('.tab-btn');
+  const contents = document.querySelectorAll('.tab-content');
+  tabs.forEach(btn => btn.addEventListener('click', () => {
+    tabs.forEach(b => b.classList.remove('active'));
+    contents.forEach(c => c.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  }));
+
+  // 平滑滚动
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) window.scrollTo({ top: t.offsetTop - 80, behavior: 'smooth' });
+    });
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<view class="container">
+  <view class="title">梭布垭石林 - 奇幻石林世界</view>
+  <view class="desc">探秘亿万年地质奇观，感受大自然的鬼斧神工，体验土家族独特民俗文化</view>
+  <view class="section-title">美景展示</view>
+  <scroll-view class="carousel" scroll-x="true" show-scrollbar="false">
+    <image src="https://i.postimg.cc/pTbW5Ytj/R-C.jpg" class="carousel-img" mode="aspectFill" />
+    <image src="https://i.postimg.cc/vHWNGr0j/12ab7d68e0371e705cad99c46e4e4df9-jpg-r-720x480x95-b2b29ce5.jpg" class="carousel-img" mode="aspectFill" />
+    <image src="https://i.postimg.cc/8552577v/c17b-kffctcc7845822.jpg" class="carousel-img" mode="aspectFill" />
+    <image src="https://i.postimg.cc/kXpv3BmZ/R-C-1.jpg" class="carousel-img" mode="aspectFill" />
+    <image src="https://i.postimg.cc/Hnfn3GqS/R-C-2.jpg" class="carousel-img" mode="aspectFill" />
+  </scroll-view>
+  <view class="section-title">景点介绍</view>
+  <view class="desc">
+    梭布垭石林位于湖北省恩施土家族苗族自治州恩施市太阳河乡，是鄂西南地区独特的自然景观。
+    <view class="sub-title">亿万年地质奇观</view>
+    梭布垭石林形成于距今约4.5亿年前的奥陶纪时期，是典型的喀斯特地貌景观。整个石林景区面积约20平方公里，由多个石林群组成，石柱林立，形态各异，有的如人，有的如兽，有的如物，栩栩如生。
+    梭布垭石林最独特的特点是“戴冠石林”，石柱顶部多呈帽状或蘑菇状，这是由于长期风化剥蚀和流水侵蚀形成的，在全国石林景观中独树一帜。
+    景区内还有丰富的植物资源，森林覆盖率高，空气清新，负氧离子含量高，被誉为“天然氧吧”。
+    除了自然景观，梭布垭石林还融入了丰富的土家族文化元素，游客在欣赏自然美景的同时，还能体验独特的民族风情。
+    <image src="https://i.postimg.cc/NFc2w2G6/6741-kffctcc7845379.jpg" class="intro-img" mode="aspectFill" />
+  </view>
+  <view class="section-title">旅游攻略</view>
+  <view class="desc">
+    <view class="sub-title">交通指南</view>
+    梭布垭石林距离恩施市区约40公里，交通较为便利。
+    <text>自驾：</text>从恩施市区出发，沿恩施-利川方向行驶，约40分钟车程即可到达。
+    <text>公共交通：</text>在恩施汽车客运站乘坐前往太阳河乡的班车，在梭布垭石林站下车。
+    <text>景区内交通：</text>景区内提供观光车服务，可前往主要景点，票价20元/人。部分路段需步行，建议穿舒适鞋。
+    <view class="sub-title">最佳游览时间</view>
+    四季皆宜，春秋气候最宜人。
+    <view class="sub-title">美食推荐</view>
+    土家腊肉、合渣、炕土豆、土家社饭等地道美食。
+    <view class="sub-title">住宿推荐</view>
+    景区及周边有多家农家乐、客栈和酒店，建议提前预订。
+    <view class="sub-title">行程建议</view>
+    一日游：上午游览主要景点，下午返程。两日游：深度体验石林及周边，晚上入住农家乐。
+    <view class="sub-title">注意事项</view>
+    景区部分路段较陡，注意安全；夏季防晒防雨；尊重民族风俗，保护环境。
+  </view>
+</view>

@@ -5,7 +5,11 @@
     "pages/find/find",
     "pages/destination/destination",
     "pages/guide/guide",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/webview/webview",
+    "pages/pengjiazai/index",
+    "pages/suobuyashilin/index",
+    "pages/shennongxi/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",

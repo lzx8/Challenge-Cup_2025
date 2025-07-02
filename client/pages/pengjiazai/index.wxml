@@ -1,0 +1,34 @@
+<view class="container">
+  <view class="title">恩施彭家寨 - 土家族民俗风情旅游胜地</view>
+  <view class="desc">云雾缭绕中的土家族传统村落，宛如人间仙境</view>
+  <view class="section-title">美景展示</view>
+  <scroll-view class="carousel" scroll-x="true" show-scrollbar="false">
+    <image src="https://i.postimg.cc/Gpw2xxCb/c6b2beedab79370bd22d58d704360da5-jpg-r-680x453x95-f1686d9a.jpg" class="carousel-img" mode="aspectFill" />
+    <image src="https://i.postimg.cc/mgbkjqxy/4372063-100709048453-2.jpg" class="carousel-img" mode="aspectFill" />
+    <image src="https://i.postimg.cc/m2YtDTg2/W020230622780092000468.png" class="carousel-img" mode="aspectFill" />
+    <image src="https://i.postimg.cc/kgV1PYcC/OIP-C.webp" class="carousel-img" mode="aspectFill" />
+  </scroll-view>
+  <view class="section-title">景点介绍</view>
+  <view class="desc">
+    彭家寨位于湖北省恩施土家族苗族自治州宣恩县沙道沟镇，是一个保存完好的土家族传统村落，被誉为“中国最美古村落”之一。这里依山而建，错落有致的土家吊脚楼，与周围的自然环境融为一体，构成了一幅美丽的山水画卷。
+    彭家寨的建筑风格独特，全部为土家吊脚楼，这些木结构建筑依山而建，层层叠叠，错落有致。吊脚楼一般为三层，底层用于饲养牲畜和堆放农具，中层住人，上层储存粮食。这种建筑形式既适应了山区地形，又体现了土家族人民的智慧。
+    除了独特的建筑，彭家寨还保存了丰富的土家族传统文化。这里的人们依然保留着传统的土家语言、服饰、饮食和习俗。每年农历三月三、六月六等传统节日，村民们都会举行盛大的庆祝活动，包括摆手舞、茅古斯舞等传统表演，让游客充分感受土家族文化的魅力。
+    彭家寨不仅是一个美丽的旅游胜地，更是一个了解中国少数民族文化、感受传统乡村生活的好地方。在这里，你可以放慢脚步，呼吸新鲜空气，聆听山间鸟鸣，体验淳朴的民风，感受远离城市喧嚣的宁静与祥和。
+  </view>
+  <view class="section-title">旅游攻略</view>
+  <view class="desc">
+    <view class="sub-title">交通指南</view>
+    飞机：可先飞抵恩施许家坪机场，再转乘汽车前往宣恩县，最后转车到沙道沟镇。
+    火车：可乘坐火车到恩施站，再转乘长途汽车前往宣恩县，最后转车到沙道沟镇。
+    汽车：从恩施汽车站有直达宣恩县的班车，再从宣恩县汽车站转乘到沙道沟镇的班车。
+    <view class="sub-title">住宿推荐</view>
+    彭家寨内有几户农家乐提供住宿，可以体验土家族传统民居，价格约80-150元/晚。沙道沟镇、宣恩县城、恩施市区均有更多住宿选择。
+    <view class="sub-title">美食推荐</view>
+    土家腊肉、合渣、土家社饭、咂酒、土家炸洋芋等地道美食。
+    <view class="sub-title">行程建议</view>
+    一日游：上午到达彭家寨，游览主要景点，中午农家乐午餐，下午继续游览，傍晚可住宿或返程。
+    两日游：第一天游览主要景点，晚上住农家乐，体验民俗活动，第二天游览周边景点。
+    <view class="sub-title">注意事项</view>
+    建议提前预订住宿，夏季注意防蚊，尊重当地风俗。
+  </view>
+</view>

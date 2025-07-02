@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>恩施女儿城 · 土家女儿国风情之旅</title>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+ <style>
+  /* 通用样式 */
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+    }
+
+  body{background:#f8f9fa;color:#333;line-height:1.6;}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px;}
+  a{text-decoration:none;color:inherit;}
+  
+  /* 头部样式 */
+  header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.1);position:sticky;top:0;z-index:100;}
+  .header-top{display:flex;justify-content:space-between;align-items:center;padding:15px 0;}
+  .logo{font-size:24px;font-weight:bold;color:#e67e22;}
+  .nav-toggle{display:none;cursor:pointer;font-size:24px;}
+  nav ul{display:flex;}
+  nav ul li{list-style:none;margin-left:30px;}
+  nav ul li a{color:#555;font-weight:500;}
+  nav ul li a:hover{color:#e67e22;}
+  
+  /* 英雄区域样式 */
+  .hero{height:500px;background-image:url('https://i.postimg.cc/KzyYHMVv/1204-jpg-wh860.jpg');background-size:cover;background-position:center;position:relative;display:flex;align-items:center;}
+  .hero::before{content:"";position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);}
+  .hero-content{position:relative;z-index:1;color:#fff;padding:0 20px;}
+  .hero-content h1{font-size:48px;margin-bottom:20px;}
+  .hero-content p{font-size:18px;margin-bottom:30px;max-width:600px;}
+  .btn{display:inline-block;padding:12px 30px;background:#e67e22;color:#fff;border-radius:4px;font-weight:bold;}
+  .btn:hover{background:#d35400;}
+  
+  /* 轮播图样式 */
+  .carousel{position:relative;overflow:hidden;margin:50px 0;}
+  .carousel-inner{display:flex;transition:transform 0.5s ease;min-height:400px;}
+  .carousel-item{min-width:100%;position:relative;}
+  .carousel-item img{width:100%;height:400px;object-fit:cover;}
+  .carousel-caption{position:absolute;bottom:0;left:0;width:100%;background:rgba(0,0,0,0.6);color:#fff;padding:20px;}
+  .carousel-caption h3{margin-bottom:10px;}
+  .carousel-controls{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 20px;}
+  .prev, .next{background:#333;color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background 0.3s;}
+  .prev:hover, .next:hover{background:#e67e22;}
+  .indicators{position:absolute;bottom:20px;right:20px;display:flex;gap:10px;}
+  .indicator{width:12px;height:12px;border-radius:50%;background:#ccc;cursor:pointer;}
+  .indicator.active{background:#e67e22;}
+  
+  /* 特色区域样式 */
+  .features{padding:60px 0;}
+  .section-title{text-align:center;margin-bottom:50px;}
+  .section-title h2{font-size:36px;color:#333;margin-bottom:15px;}
+  .section-title p{color:#666;max-width:700px;margin:0 auto;}
+  .features-grid{display:grid;grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));gap:30px;}
+  .feature-card{background:#fff;padding:30px;box-shadow:0 5px 15px rgba(0,0,0,.05);border-radius:8px;transition:transform 0.3s;}
+  .feature-card:hover{transform: translateY(-10px);}
+  .feature-icon{font-size:40px;color:#e67e22;margin-bottom:20px;}
+  .feature-card h3{margin-bottom:15px;font-size:22px;}
+  .feature-card p{color:#666;}
+  
+  /* 活动区域样式 */
+  .activities{background:#e67e22;padding:60px 0;}
+  .activities .section-title{color:#fff;}
+  .activities .section-title p{color:#f8f9fa;}
+  .tabs{margin-top:30px;}
+  .tab-buttons{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-bottom:30px;}
+  .tab-btn{padding:10px 20px;background:#fff;color:#e67e22;border-radius:4px;font-weight:bold;cursor:pointer;transition:background 0.3s,color 0.3s;}
+  .tab-btn.active{background:#e67e22;color:#fff;}
+  .tab-content{display:none;background:#fff;padding:30px;box-shadow:0 5px 15px rgba(0,0,0,.1);border-radius:8px;}
+  .tab-content.active{display:block;}
+  .activity-item{display:flex;gap:30px;margin-bottom:30px;}
+  .activity-image{flex:0 0 200px;box-shadow:0 5px 15px rgba(0,0,0,.1);border-radius:8px;}
+  .activity-image img{width:100%;height:150px;object-fit:cover;border-radius:8px;}
+  .activity-details{flex:1;}
+  .activity-details h3{margin-bottom:10px;font-size:20px;}
+  .activity-details p{color:#666;margin-bottom:15px;}
+  .activity-details .time{color:#e67e22;font-weight:bold;}
+  
+  
+  /* 底部样式 */
+  footer{background:#333;color:#fff;padding:60px 0 30px;}
+  .footer-content{display:flex;flex-wrap:wrap;justify-content:space-between;gap:40px;margin-bottom:30px;}
+  .footer-column{flex:1;min-width:200px;}
+  .footer-column h3{font-size:18px;margin-bottom:20px;color:#e67e22;}
+  .footer-column ul{list-style:none;}
+  .footer-column ul li{margin-bottom:10px;}
+  .footer-column ul li a{color:#ccc;transition:color 0.3s;}
+  .footer-column ul li a:hover{color:#fff;}
+  .footer-bottom{text-align:center;padding-top:30px;border-top:1px solid #444;}
+  .footer-bottom a{color:#ccc;transition:color 0.3s;}
+  .footer-bottom a:hover{color:#fff;}
+  
+  /* 响应式设计 */
+  @media (max-width:768px) {
+   .nav-toggle{display:block;}
+   nav ul{display:none;position:absolute;top:100%;left:0;background:#fff;width:100%;box-shadow:0 5px 10px rgba(0,0,0,.1);padding:20px;}
+   nav ul.show{display:block;}
+   nav ul li{display:block;margin:10px 0;}
+   nav ul li a{color:#555;}
+   nav ul li a:hover{color:#e67e22;}
+   .hero-content h1{font-size:36px;}
+   .hero-content p{font-size:16px;}
+   .carousel-item img{height:300px;}
+   .activity-item{flex-direction:column;}
+   .activity-image{flex:0 0 auto;margin-bottom:20px;}
+  }
+</style>
+</head>
+<body>
+ <header>
+  <div class="container">
+   <div class="header-top">
+    <div class="logo">恩施女儿城</div>
+    <div class="nav-toggle"><i class="bi bi-list"></i></div>
+    <nav>
+     <ul>
+      <li><a href="#home">首页</a></li>
+      <li><a href="#features">女儿城特色</a></li>
+      <li><a href="#activities">精彩活动</a></li>
+     </ul>
+    </nav>
+   </div>
+  </div>
+ </header>
+
+ <section class="hero" id="home">
+  <div class="hero-content">
+   <h1>探秘土家女儿国</h1>
+   <p>走进恩施女儿城，体验千年土家文化，感受女儿国的独特风情，开启一段难忘的民俗之旅。</p>
+   <a href="#features" class="btn">了解更多</a>
+  </div>
+ </section>
+
+ <section class="carousel">
+  <div class="carousel-inner">
+   <div class="carousel-item">
+    <img src="https://i.postimg.cc/hv1MdVFJ/1212-jpg-wh860.jpg" alt="女儿城全景">
+    <div class="carousel-caption">
+     <h3>壮丽女儿城</h3>
+     <p>依山而建的女儿城，融合了土家建筑特色与现代设计，是体验土家文化的绝佳去处。</p>
+    </div>
+   </div>
+   <div class="carousel-item">
+    <img src="https://i.postimg.cc/mZPH1YsK/877d27b5e0b89db5.jpg" alt="土家歌舞表演">
+    <div class="carousel-caption">
+     <h3>土家歌舞盛宴</h3>
+     <p>每晚的土家歌舞表演，让您领略土家族的能歌善舞，感受浓郁的民族风情。</p>
+    </div>
+   </div>
+   <div class="carousel-item">
+    <img src="https://i.postimg.cc/cHStpjj3/OIP-C.webp" alt="特色美食">
+    <div class="carousel-caption">
+     <h3>地道土家美食</h3>
+     <p>品尝土家特色美食，如合渣、腊肉、土家饼等，满足您的味蕾，体验不一样的美食文化。</p>
+    </div>
+   </div>
+  </div>
+  <div class="carousel-controls">
+   <div class="prev"><i class="bi bi-chevron-left"></i></div>
+   <div class="next"><i class="bi bi-chevron-right"></i></div>
+  </div>
+  <div class="indicators">
+   <div class="indicator active"></div>
+   <div class="indicator"></div>
+   <div class="indicator"></div>
+  </div>
+ </section>
+
+ <section id="features" class="features">
+  <div class="container">
+   <div class="section-title">
+    <h2>女儿城特色</h2>
+    <p>女儿城是土家族文化的重要载体，这里汇聚了土家族的建筑、服饰、歌舞、美食等多元文化元素，是体验土家风情的不二之选。</p>
+   </div>
+   <div class="features-grid">
+    <div class="feature-card">
+     <div class="feature-icon"><i class="bi bi-house-heart"></i></div>
+     <h3>女儿国建筑</h3>
+     <p>女儿城依山而建，融合了土家吊脚楼的传统建筑特色与现代设计理念，形成独特的女儿国建筑群，展现了土家族的建筑智慧。</p>
+    </div>
+    <div class="feature-card">
+     <div class="feature-icon"><i class="bi bi-music-note-beamed"></i></div>
+     <h3>土家歌舞</h3>
+     <p>每晚的《土家女儿会》大型实景演出，将土家族的歌舞艺术展现得淋漓尽致，让游客沉浸式体验土家文化的魅力。</p>
+    </div>
+    <div class="feature-card">
+     <div class="feature-icon"><i class="bi bi-cup-hot"></i></div>
+     <h3>特色美食</h3>
+     <p>女儿城内有众多土家特色餐厅，提供合渣、腊肉、土家饼等传统美食，让您在品尝美味的同时，感受土家饮食文化的独特魅力。</p>
+    </div>
+    <div class="feature-card">
+     <div class="feature-icon"><i class="bi bi-shop"></i></div>
+     <h3>民俗市集</h3>
+     <p>城内的民俗市集汇聚了土家银饰、刺绣、织锦等手工艺品，游客可以购买到具有民族特色的纪念品，将土家文化带回家。</p>
+    </div>
+    <div class="feature-card">
+     <div class="feature-icon"><i class="bi bi-calendar-event"></i></div>
+     <h3>节庆活动</h3>
+     <p>女儿城定期举办土家女儿会、摆手舞节等传统节庆活动，游客可以参与其中，体验土家族的传统习俗和节日氛围。</p>
+    </div>
+    <div class="feature-card">
+     <div class="feature-icon"><i class="bi bi-people"></i></div>
+     <h3>民俗体验</h3>
+     <p>游客可以参与土家织锦、银饰制作等民俗体验活动，亲手制作传统手工艺品，深入了解土家文化的精髓。</p>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section id="activities" class="activities">
+  <div class="container">
+   <div class="section-title">
+    <h2>精彩活动</h2>
+    <p>女儿城全年举办丰富多彩的文化活动，让您在不同季节都能感受到土家文化的独特魅力。</p>
+   </div>
+   <div class="tabs">
+    <div class="tab-buttons">
+     <div class="tab-btn active" data-tab="spring">春季活动</div>
+     <div class="tab-btn" data-tab="summer">夏季活动</div>
+     <div class="tab-btn" data-tab="autumn">秋季活动</div>
+     <div class="tab-btn" data-tab="winter">冬季活动</div>
+    </div>
+    <div class="tab-content active" id="spring">
+     <div class="activity-item">
+      <div class="activity-image">
+       <img src="https://i.postimg.cc/8c5N2zPY/100g12000000ru83s1-BDA.jpg" alt="土家女儿会">
+      </div>
+      <div class="activity-details">
+       <h3>土家女儿会</h3>
+       <p>每年农历五月初五，女儿城会举办盛大的土家女儿会，这是土家族的传统节日，也是青年男女相亲相爱的好时机。活动现场有歌舞表演、美食节、相亲大会等丰富多彩的活动。</p>
+       <div class="time"><i class="bi bi-clock"></i> 每年农历五月初五</div>
+      </div>
+     </div>
+     <div class="activity-item">
+      <div class="activity-image">
+       <img src="https://i.postimg.cc/dVJyNgbT/DB050-C05-C7-E09206-D2-EA725797979-AC92-AF746-CF-size161-w1080-h608.jpg" alt="踏青赏花">
+      </div>
+      <div class="activity-details">
+       <h3>踏青赏花</h3>
+       <p>春季是女儿城最美的季节，城内的樱花、杜鹃等花卉竞相开放，游客可以漫步花海，感受春日的生机与活力。同时，还有春茶采摘、花艺展示等活动。</p>
+       <div class="time"><i class="bi bi-clock"></i> 每年3-4月</div>
+      </div>
+     </div>
+    </div>
+    <div class="tab-content" id="summer">
+     <div class="activity-item">
+      <div class="activity-image">
+       <img src="https://i.postimg.cc/Vs7pNcRz/951e-ifmectm5137447.jpg" alt="泼水节">
+      </div>
+      <div class="activity-details">
+       <h3>土家泼水节</h3>
+       <p>受傣族泼水节影响，女儿城在夏季也会举办盛大的泼水节活动。游客可以参与泼水狂欢，感受清凉与欢乐，同时欣赏到精彩的民族歌舞表演。</p>
+       <div class="time"><i class="bi bi-clock"></i> 每年7月</div>
+      </div>
+     </div>
+     <div class="activity-item">
+      <div class="activity-image">
+       <img src="https://i.postimg.cc/mgRTYs0K/R-C-2.jpg" alt="篝火晚会">
+      </div>
+      <div class="activity-details">
+       <h3>篝火晚会</h3>
+       <p>夏夜的女儿城，篝火晚会是必不可少的节目。游客可以围坐在篝火旁，欣赏土家族的歌舞表演，参与集体舞，感受土家族的热情好客。</p>
+       <div class="time"><i class="bi bi-clock"></i> 每周五晚</div>
+      </div>
+     </div>
+    </div>
+    <div class="tab-content" id="autumn">
+     <div class="activity-item">
+      <div class="activity-image">
+       <img src="https://i.postimg.cc/ZqnnNmN4/w-Kg-BEFq6a6-OAGWM-AAtz-Qi1xnc-M62.jpg" alt="丰收节">
+      </div>
+      <div class="activity-details">
+       <h3>土家丰收节</h3>
+       <p>秋季是丰收的季节，女儿城会举办盛大的丰收节庆祝活动。活动包括农耕体验、农产品展销、土家美食节等，让游客感受土家族的丰收喜悦。</p>
+       <div class="time"><i class="bi bi-clock"></i> 每年农历九月初九</div>
+      </div>
+     </div>
+     <div class="activity-item">
+      <div class="activity-image">
+       <img src="https://i.postimg.cc/L51Z1prn/033c85741e33d85f43bc9d7d5c1216c1.jpg" alt="摆手舞节">
+      </div>
+      <div class="activity-details">
+       <h3>摆手舞节</h3>
+       <p>摆手舞是土家族的传统舞蹈，每年秋季，女儿城会举办摆手舞节，游客可以学习跳摆手舞，参与集体表演，感受土家族舞蹈的魅力。</p>
+       <div class="time"><i class="bi bi-clock"></i> 每年10月</div>
+      </div>
+     </div>
+    </div>
+    <div class="tab-content" id="winter">
+     <div class="activity-item">
+      <div class="activity-image">
+       <img src="https://i.postimg.cc/T3L30609/150b0446086b88b5.jpg" alt="土家年">
+      </div>
+      <div class="activity-details">
+       <h3>土家年</h3>
+       <p>女儿城会举办盛大的土家年庆祝活动，包括贴春联、挂灯笼、舞龙舞狮、吃团圆饭等传统习俗，让游客体验不一样的过年方式。</p>
+       <div class="time"><i class="bi bi-clock"></i> 每年春节</div>
+      </div>
+     </div>
+     <div class="activity-item">
+      <div class="activity-image">
+       <img src="https://i.postimg.cc/RZchQq31/10051g000001hb6og3-D3-E.jpg" alt="冬季民俗市集">
+      </div>
+      <div class="activity-details">
+       <h3>冬季民俗市集</h3>
+       <p>冬季的女儿城会举办特色民俗市集，有手工制作、民俗表演、土家美食等，让游客在寒冷的冬季也能感受到土家文化的温暖。</p>
+       <div class="time"><i class="bi bi-clock"></i> 每年12月-次年2月</div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+  <!-- ======= 页脚 ======= -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>关于女儿城</h3>
+          <p>恩施土家女儿城总占地面积11万平方米，建筑面积10万平方米，建筑特色由古香古色的土家元素构成，有三横二纵全封闭步行街5条。</p>
+          <p>景区文化和旅游资源集聚，建有土家民俗博物馆、硒茶博物馆、硒产品展示厅、实景剧场、儿童乐园、小吃街、夜市一条街以及各种不同风格的特色客栈、特色餐饮、旅游特色商品、梦想小镇创业孵化园等休闲娱乐项目及相关配套设施，是集民族文化、休闲旅游、民俗酒店及特色商贸为一体，吃、住、游、购、娱一条龙的商旅综合体。</p>
+        </div>
+        <div class="footer-column">
+          <h3>快速链接</h3>
+          <ul class="footer-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#features">女儿城特色</a></li>
+            <li><a href="#activities">精彩活动</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>旅行参考</h3>
+          <ul class="footer-links">
+            <li><a href="https://www.dahepiao.com/jingqulvyou1/20230613393133.html">大河票务</a></li>
+            <li><a href="https://you.ctrip.com/sight/enshicity1446196/1414339.html">携程旅游</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2025 智慧恩施</div>
+    </div>
+  </footer>
+
+ <script>
+ document.addEventListener('DOMContentLoaded', () => {
+  // 导航菜单切换
+  const navToggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('nav ul');
+  
+  navToggle.addEventListener('click', () => {
+   navMenu.classList.toggle('show');
+  });
+  
+  // 轮播图逻辑
+  const carousel = document.querySelector('.carousel');
+  const inner = carousel.querySelector('.carousel-inner');
+  const items = carousel.querySelectorAll('.carousel-item');
+  const prev = carousel.querySelector('.prev');
+  const next = carousel.querySelector('.next');
+  const dots = carousel.querySelectorAll('.indicator');
+  let idx = 0, len = items.length;
+  
+  const updateCarousel = () => {
+   inner.style.transform = `translateX(-${idx * 100}%)`;
+   dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === idx);
+   });
+  };
+  
+  prev.addEventListener('click', () => {
+   idx = (idx - 1 + len) % len;
+   updateCarousel();
+  });
+  
+  next.addEventListener('click', () => {
+   idx = (idx + 1) % len;
+   updateCarousel();
+  });
+  
+  dots.forEach((dot, i) => {
+   dot.addEventListener('click', () => {
+    idx = i;
+    updateCarousel();
+   });
+  });
+  
+  // 自动轮播
+  let carouselInterval = setInterval(() => {
+   idx = (idx + 1) % len;
+   updateCarousel();
+  }, 5000);
+  
+  carousel.addEventListener('mouseenter', () => {
+   clearInterval(carouselInterval);
+  });
+  
+  carousel.addEventListener('mouseleave', () => {
+   carouselInterval = setInterval(() => {
+    idx = (idx + 1) % len;
+    updateCarousel();
+   }, 5000);
+  });
+  
+  // 标签页切换
+  const tabButtons = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  
+  tabButtons.forEach(btn => {
+   btn.addEventListener('click', () => {
+    const tabId = btn.dataset.tab;
+    
+    tabButtons.forEach(b => b.classList.remove('active'));
+    tabContents.forEach(c => c.classList.remove('active'));
+    
+    btn.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+   });
+  });
+  
+  // 平滑滚动
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+   a.addEventListener('click', e => {
+    e.preventDefault();
+    
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+     window.scrollTo({
+      top: target.offsetTop - 80,
+      behavior: 'smooth'
+     });
+    }
+   });
+  });
+ });
+</script>
+</body>
+</html>

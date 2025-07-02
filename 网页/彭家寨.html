@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恩施彭家寨 - 土家族民俗风情旅游胜地</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background-color: #1a3c5e;
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #ffd700;
+        }
+        
+        /* 照片轮播区样式 */
+        .carousel {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .carousel-inner {
+            height: 100%;
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .carousel-caption h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            z-index: 10;
+        }
+        
+        .carousel-control:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        
+        .carousel-control.prev {
+            left: 20px;
+        }
+        
+        .carousel-control.next {
+            right: 20px;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .indicator.active {
+            background-color: white;
+        }
+        
+        /* 景点介绍样式 */
+        .section-title {
+            text-align: center;
+            margin: 50px 0 30px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 32px;
+            color: #1a3c5e;
+            display: inline-block;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #ffd700;
+            margin: 10px auto 0;
+        }
+        
+        .introduction {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .introduction p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        /* 旅游攻略样式 */
+        .travel-guide {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+        }
+        
+        .guide-tabs {
+            display: flex;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 20px;
+        }
+        
+        .tab-btn {
+            padding: 12px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            position: relative;
+            transition: color 0.3s;
+        }
+        
+        .tab-btn:after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: #ffd700;
+            transition: width 0.3s;
+        }
+        
+        .tab-btn.active {
+            color: #1a3c5e;
+        }
+        
+        .tab-btn.active:after {
+            width: 100%;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .guide-item {
+            margin-bottom: 20px;
+        }
+        
+        .guide-item h4 {
+            margin-bottom: 10px;
+            color: #1a3c5e;
+        }
+        
+        .guide-item ul {
+            padding-left: 20px;
+        }
+        
+        .guide-item li {
+            margin-bottom: 8px;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: #1a3c5e;
+            color: white;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 20px;
+            padding: 0 15px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+            position: relative;
+        }
+        
+        .footer-section h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 40px;
+            height: 2px;
+            background-color: #ffd700;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ffd700;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 20px;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .carousel {
+                height: 300px;
+            }
+            
+            .carousel-caption h3 {
+                font-size: 18px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .guide-tabs {
+                flex-wrap: wrap;
+            }
+            
+            .tab-btn {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">恩施彭家寨</div>
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#introduction">景点介绍</a></li>
+                    <li><a href="#travel-guide">旅游攻略</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <div class="container">
+        <!-- 照片轮播区 -->
+        <section id="home">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="https://i.postimg.cc/Gpw2xxCb/c6b2beedab79370bd22d58d704360da5-jpg-r-680x453x95-f1686d9a.jpg" alt="彭家寨全景">
+                        <div class="carousel-caption">
+                            <h3>彭家寨全景</h3>
+                            <p>云雾缭绕中的土家族传统村落，宛如人间仙境</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.postimg.cc/mgbkjqxy/4372063-100709048453-2.jpg" alt="土家吊脚楼">
+                        <div class="carousel-caption">
+                            <h3>土家吊脚楼</h3>
+                            <p>独特的建筑风格，依山而建，错落有致</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.postimg.cc/m2YtDTg2/W020230622780092000468.png" alt="土家民俗">
+                        <div class="carousel-caption">
+                            <h3>土家民俗</h3>
+                            <p>丰富多彩的土家族传统文化与习俗</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.postimg.cc/kgV1PYcC/OIP-C.webp" alt="彭家寨夜景">
+                        <div class="carousel-caption">
+                            <h3>彭家寨夜景</h3>
+                            <p>灯火阑珊处，感受土家山寨的宁静与祥和</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="carousel-control prev">
+                    <i class="bi bi-chevron-left"></i>
+                </div>
+                <div class="carousel-control next">
+                    <i class="bi bi-chevron-right"></i>
+                </div>
+                
+                <div class="carousel-indicators">
+                    <div class="indicator active" data-index="0"></div>
+                    <div class="indicator" data-index="1"></div>
+                    <div class="indicator" data-index="2"></div>
+                    <div class="indicator" data-index="3"></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- 景点介绍 -->
+        <section id="introduction">
+            <div class="section-title">
+                <h2>景点介绍</h2>
+            </div>
+            
+            <div class="introduction">
+                <p>彭家寨位于湖北省恩施土家族苗族自治州宣恩县沙道沟镇，是一个保存完好的土家族传统村落，被誉为"中国最美古村落"之一。这里依山而建，错落有致的土家吊脚楼，与周围的自然环境融为一体，构成了一幅美丽的山水画卷。</p>
+                
+                <p>彭家寨的建筑风格独特，全部为土家吊脚楼，这些木结构建筑依山而建，层层叠叠，错落有致。吊脚楼一般为三层，底层用于饲养牲畜和堆放农具，中层住人，上层储存粮食。这种建筑形式既适应了山区地形，又体现了土家族人民的智慧。</p>
+                
+                <p>除了独特的建筑，彭家寨还保存了丰富的土家族传统文化。这里的人们依然保留着传统的土家语言、服饰、饮食和习俗。每年农历三月三、六月六等传统节日，村民们都会举行盛大的庆祝活动，包括摆手舞、茅古斯舞等传统表演，让游客充分感受土家族文化的魅力。</p>
+                
+                <p>彭家寨不仅是一个美丽的旅游胜地，更是一个了解中国少数民族文化、感受传统乡村生活的好地方。在这里，你可以放慢脚步，呼吸新鲜空气，聆听山间鸟鸣，体验淳朴的民风，感受远离城市喧嚣的宁静与祥和。</p>
+            </div>
+        </section>
+        
+        <!-- 旅游攻略 -->
+        <section id="travel-guide">
+            <div class="section-title">
+                <h2>旅游攻略</h2>
+            </div>
+            
+            <div class="travel-guide">
+                <div class="guide-tabs">
+                    <button class="tab-btn active" data-tab="transportation">交通指南</button>
+                    <button class="tab-btn" data-tab="accommodation">住宿推荐</button>
+                    <button class="tab-btn" data-tab="food">美食推荐</button>
+                    <button class="tab-btn" data-tab="itinerary">行程建议</button>
+                </div>
+                
+                <div class="tab-content active" id="transportation">
+                    <div class="guide-item">
+                        <h4>外部交通</h4>
+                        <ul>
+                            <li>飞机：可先飞抵恩施许家坪机场，再转乘汽车前往宣恩县，最后转车到沙道沟镇。</li>
+                            <li>火车：可乘坐火车到恩施站，再转乘长途汽车前往宣恩县，最后转车到沙道沟镇。</li>
+                            <li>汽车：从恩施汽车站有直达宣恩县的班车，再从宣恩县汽车站转乘到沙道沟镇的班车。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-item">
+                        <h4>内部交通</h4>
+                        <ul>
+                            <li>彭家寨距离沙道沟镇约5公里，可选择包车或乘坐当地面包车前往。</li>
+                            <li>景区内可步行游览，也可租借自行车或电动车，体验乡村道路。</li>
+                            <li>建议自驾游，方便自由安排行程，景区周边停车方便。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-item">
+                        <h4>最佳旅游季节</h4>
+                        <ul>
+                            <li>春季（3-5月）：山花烂漫，气候宜人。</li>
+                            <li>夏季（6-8月）：绿树成荫，是避暑的好去处。</li>
+                            <li>秋季（9-11月）：层林尽染，景色最为壮观。</li>
+                            <li>冬季（12-2月）：银装素裹，别有一番风味。</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="accommodation">
+                    <div class="guide-item">
+                        <h4>景区内住宿</h4>
+                        <ul>
+                            <li>彭家寨内有几户农家乐提供住宿，可以体验土家族传统民居，价格约80-150元/晚。</li>
+                            <li>农家乐通常提供简单早餐和晚餐，可以品尝地道的土家族美食。</li>
+                            <li>住宿条件相对简单，但能更深入地体验当地生活。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-item">
+                        <h4>景区外住宿</h4>
+                        <ul>
+                            <li>沙道沟镇有少量旅馆和招待所，价格约100-200元/晚。</li>
+                            <li>宣恩县城有更多选择，从经济型酒店到中档酒店都有，价格约150-400元/晚。</li>
+                            <li>恩施市区酒店选择更多，设施更完善，价格约200-800元/晚。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-item">
+                        <h4>住宿小贴士</h4>
+                        <ul>
+                            <li>建议提前预订，尤其是在旅游旺季和节假日。</li>
+                            <li>如需体验当地生活，可选择住在农家乐，但要做好设施简陋的准备。</li>
+                            <li>夏季蚊虫较多，建议携带驱蚊用品。</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="food">
+                    <div class="guide-item">
+                        <h4>特色美食</h4>
+                        <ul>
+                            <li>土家腊肉：选用本地土猪，腌制后熏制而成，风味独特。</li>
+                            <li>合渣：土家族传统食品，用黄豆磨浆后煮制，口感滑嫩。</li>
+                            <li>土家社饭：用糯米、野菜等制作，是土家族祭祀社神的传统食品。</li>
+                            <li>咂酒：土家族传统酒类，用玉米、高粱等发酵而成，需用竹管饮用。</li>
+                            <li>土家炸洋芋：将土豆切片油炸后，撒上辣椒面等调料，香脆可口。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-item">
+                        <h4>用餐地点</h4>
+                        <ul>
+                            <li>彭家寨内的农家乐提供特色餐饮，价格实惠，约30-50元/人。</li>
+                            <li>沙道沟镇有几家餐馆，可以品尝到更丰富的土家族美食。</li>
+                            <li>宣恩县城有更多选择，包括土家族餐厅和川菜馆等。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-item">
+                        <h4>美食小贴士</h4>
+                        <ul>
+                            <li>土家族饮食偏辣，不喜辣的游客可提前告知店家少放辣椒。</li>
+                            <li>腊肉等腌制品盐分较高，建议适量食用。</li>
+                            <li>可向当地人请教更多特色美食，体验更地道的地方风味。</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="itinerary">
+                    <div class="guide-item">
+                        <h4>一日游行程</h4>
+                        <ul>
+                            <li>上午：从恩施出发，约3小时车程到达彭家寨，开始游览。</li>
+                            <li>中午：在彭家寨农家乐品尝土家族午餐。</li>
+                            <li>下午：继续游览，参观吊脚楼、了解土家族文化。</li>
+                            <li>傍晚：可选择在农家乐住宿，或返回恩施。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-item">
+                        <h4>两日游行程</h4>
+                        <ul>
+                            <li>第一天：上午到达彭家寨，游览上午景点，中午农家乐午餐，下午继续游览，晚上住在农家乐，体验土家族民俗活动。</li>
+                            <li>第二天：早餐后继续游览周边景点，如七姊妹山等，中午返回恩施。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="guide-item">
+                        <h4>三日游行程</h4>
+                        <ul>
+                            <li>第一天：上午到达彭家寨，下午游览主要景点，晚上住在农家乐，参加土家族篝火晚会。</li>
+                            <li>第二天：上午参观土家族民俗博物馆，下午前往七姊妹山徒步，晚上返回农家乐。</li>
+                            <li>第三天：上午在彭家寨自由活动，购买土特产，中午离开返回恩施。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>关于彭家寨</h3>
+                    <p>彭家寨是一个保存完好的土家族传统村落，以其独特的吊脚楼建筑和丰富的土家族文化而闻名。</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>快速链接</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">首页</a></li>
+                        <li><a href="#introduction">景点介绍</a></li>
+                        <li><a href="#travel-guide">旅游攻略</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>旅游资讯</h3>
+                    <ul class="footer-links">
+                        <li><a href="https://m.dahepiao.com/news/20220804288710.html">大河票务</a></li>
+                        <li><a href="https://you.ctrip.com/travels/xuanen1446200/4026305.html">携程旅游</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2025 智慧恩施
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // 照片轮播功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 轮播图相关元素
+            const carouselInner = document.querySelector('.carousel-inner');
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            const prevBtn = document.querySelector('.carousel-control.prev');
+            const nextBtn = document.querySelector('.carousel-control.next');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            let currentIndex = 0;
+            const itemCount = carouselItems.length;
+            
+            // 更新轮播图位置
+            function updateCarousel() {
+                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // 更新指示器状态
+                indicators.forEach((indicator, index) => {
+                    if (index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            // 下一张
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % itemCount;
+                updateCarousel();
+            }
+            
+            // 上一张
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+                updateCarousel();
+            }
+            
+            // 绑定按钮事件
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            // 绑定指示器点击事件
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+            
+            // 自动轮播
+            let interval = setInterval(nextSlide, 5000);
+            
+            // 鼠标悬停时暂停轮播
+            const carousel = document.querySelector('.carousel');
+            carousel.addEventListener('mouseenter', () => {
+                clearInterval(interval);
+            });
+            
+            carousel.addEventListener('mouseleave', () => {
+                interval = setInterval(nextSlide, 5000);
+            });
+            
+            // 标签页切换功能
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const tabId = btn.getAttribute('data-tab');
+                    
+                    // 移除所有活动状态
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // 添加当前活动状态
+                    btn.classList.add('active');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

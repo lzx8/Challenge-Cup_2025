@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>恩施大峡谷 - 鄂西地质奇观</title>
+ <!-- Bootstrap Icons（用于图标） -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+ <style>
+ /* 通用样式 */
+ * {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ }
+ body {
+ font-family: 'Helvetica Neue', Arial, sans-serif;
+ line-height: 1.6;
+ color: #333;
+ background-color: #f9f9f9;
+ }
+ a {
+ text-decoration: none;
+ color: inherit;
+ }
+ ul, ol {
+ list-style: none;
+ }
+ img {
+ max-width: 100%;
+ height: auto;
+ display: block;
+ }
+ .container {
+ width: 90%;
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 15px;
+ }
+ /* 导航栏样式 */
+ .navbar {
+ background-color: #2c3e50;
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+ box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+ }
+ .navbar .container {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 15px 0;
+ }
+ .logo {
+ font-size: 24px;
+ font-weight: bold;
+ color: #fff;
+ }
+ .nav-links {
+ display: flex;
+ }
+ .nav-links li {
+ margin-left: 20px;
+ }
+ .nav-links a {
+ color: #fff;
+ font-weight: 500;
+ transition: color 0.3s;
+ }
+ .nav-links a:hover {
+ color: #3498db;
+ }
+ /* 英雄区域样式 */
+/* 英雄区域样式 */
+        .hero {
+            height: 70vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://i.postimg.cc/fWJFnthM/1darklxb33.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .btn {
+            display: inline-block;
+            background-color: #2c7744;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #1a4d2e;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        /* 轮播图样式 */
+ .carousel {
+ margin: 60px 0;
+ position: relative;
+ overflow: hidden;
+ border-radius: 10px;
+ box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+ }
+ .carousel-inner {
+ display: flex;
+ transition: transform 0.5s ease;
+ }
+ .carousel-item {
+ min-width: 100%;
+ }
+ .carousel-item img {
+ width: 100%;
+ height: 500px;
+ object-fit: cover;
+ }
+ .carousel-control {
+ position: absolute;
+ top: 50%;
+ transform: translateY(-50%);
+ width: 50px;
+ height: 50px;
+ background-color: rgba(255,255,255,0.7);
+ border-radius: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ cursor: pointer;
+ transition: background-color 0.3s;
+ }
+ .carousel-control:hover {
+ background-color: rgba(255,255,255,0.9);
+ }
+ .carousel-control.prev {
+ left: 10px;
+ }
+ .carousel-control.next {
+ right: 10px;
+ }
+ .carousel-indicators {
+ position: absolute;
+ bottom: 20px;
+ left: 50%;
+ transform: translateX(-50%);
+ display: flex;
+ }
+ .indicator {
+ width: 12px;
+ height: 12px;
+ background-color: rgba(255,255,255,0.5);
+ border-radius: 50%;
+ margin: 0 5px;
+ cursor: pointer;
+ transition: background-color 0.3s;
+ }
+ .indicator.active {
+ background-color: #fff;
+ }
+ /* 景点介绍样式 */
+ .section-title {
+ text-align: center;
+ margin: 60px 0 40px;
+ position: relative;
+ }
+ .section-title h2 {
+ font-size: 2.5rem;
+ color: #2c3e50;
+ display: inline-block;
+ }
+ .section-title h2::after {
+ content: '';
+ position: absolute;
+ bottom: -10px;
+ left: 50%;
+ transform: translateX(-50%);
+ width: 80px;
+ height: 3px;
+ background-color: #e67e22;
+ }
+ .spots {
+ display: grid;
+ grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+ gap: 30px;
+ margin-bottom: 60px;
+ }
+ .spot-card {
+ background-color: #fff;
+ border-radius: 10px;
+ overflow: hidden;
+ box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+ transition: transform 0.3s, box-shadow 0.3s;
+ }
+ .spot-card:hover {
+ transform: translateY(-10px);
+ box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+ }
+ .spot-img {
+ height: 200px;
+ overflow: hidden;
+ }
+ .spot-img img {
+ width: 100%;
+ height: 100%;
+ object-fit: cover;
+ transition: transform 0.5s;
+ }
+ .spot-card:hover .spot-img img {
+ transform: scale(1.1);
+ }
+ .spot-content {
+ padding: 20px;
+ }
+ .spot-content h3 {
+ font-size: 1.5rem;
+ margin-bottom: 10px;
+ color: #2c3e50;
+ }
+ .spot-content p {
+ color: #666;
+ margin-bottom: 15px;
+ }
+ .spot-content .tags {
+ display: flex;
+ flex-wrap: wrap;
+ gap: 5px;
+ }
+ .spot-content .tag {
+ background-color: #f1c40f;
+ color: #fff;
+ padding: 3px 10px;
+ border-radius: 15px;
+ font-size: 0.8rem;
+ }
+ /* 旅游攻略样式 */
+ .travel-guide {
+ background-color: #fff;
+ padding: 60px 0;
+ }
+ .tabs {
+ display: flex;
+ justify-content: center;
+ margin-bottom: 30px;
+ }
+ .tab-btn {
+ padding: 12px 25px;
+ background-color: #ecf0f1;
+ border: none;
+ border-radius: 30px;
+ margin: 0 10px;
+ cursor: pointer;
+ font-weight: bold;
+ transition: background-color 0.3s, color 0.3s;
+ }
+ .tab-btn.active {
+ background-color: #e67e22;
+ color: #fff;
+ }
+ .tab-content {
+ display: none;
+ animation: fadeIn 0.5s;
+ }
+ .tab-content.active {
+ display: block;
+ }
+ @keyframes fadeIn {
+ from { opacity: 0; }
+ to { opacity: 1; }
+ }
+ .guide-card {
+ background-color: #f9f9f9;
+ border-radius: 10px;
+ padding: 25px;
+ margin-bottom: 20px;
+ }
+ .guide-card h3 {
+ font-size: 1.3rem;
+ margin-bottom: 15px;
+ color: #2c3e50;
+ display: flex;
+ align-items: center;
+ }
+ .guide-card h3 i {
+ margin-right: 10px;
+ color: #e67e22;
+ }
+ .guide-card ul {
+ padding-left: 20px;
+ }
+ .guide-card li {
+ margin-bottom: 10px;
+ }
+ /* 页脚样式 */
+ .footer {
+ background-color: #2c3e50;
+ color: #fff;
+ padding: 60px 0 30px;
+ }
+ .footer .container {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+ gap: 40px;
+ margin-bottom: 40px;
+ }
+ .footer-column h3 {
+ font-size: 1.3rem;
+ margin-bottom: 20px;
+ position: relative;
+ padding-bottom: 10px;
+ }
+ .footer-column h3::after {
+ content: '';
+ position: absolute;
+ bottom: 0;
+ left: 0;
+ width: 40px;
+ height: 2px;
+ background-color: #e67e22;
+ }
+ .footer-column p {
+ margin-bottom: 15px;
+ font-size: 0.9rem;
+ line-height: 1.6;
+ }
+ .footer-links a {
+ display: block;
+ margin-bottom: 10px;
+ transition: color 0.3s;
+ }
+ .footer-links a:hover {
+ color: #3498db;
+ }
+ .social-links {
+ display: flex;
+ gap: 15px;
+ margin-top: 20px;
+ }
+ .social-links a {
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ width: 40px;
+ height: 40px;
+ background-color: rgba(255,255,255,0.1);
+ border-radius: 50%;
+ transition: background-color 0.3s;
+ }
+ .social-links a:hover {
+ background-color: #3498db;
+ }
+ .copyright {
+ text-align: center;
+ padding-top: 30px;
+ border-top: 1px solid rgba(255,255,255,0.1);
+ font-size: 0.9rem;
+ }
+ /* 响应式样式 */
+ @media (max-width: 768px) {
+ .hero h1 {
+ font-size: 2.5rem;
+ }
+ .hero p {
+ font-size: 1rem;
+ }
+ .carousel-item img {
+ height: 350px;
+ }
+ .section-title h2 {
+ font-size: 2rem;
+ }
+ .spots {
+ grid-template-columns: 1fr;
+ }
+ .footer .container {
+ grid-template-columns: 1fr;
+ }
+ }
+ </style>
+</head>
+<body>
+ <!-- 导航栏 -->
+ <nav class="navbar">
+ <div class="container">
+ <div class="logo">恩施大峡谷</div>
+ <ul class="nav-links">
+ <li><a href="#home">首页</a></li>
+ <li><a href="#spots">景点介绍</a></li>
+ <li><a href="#guide">旅游攻略</a></li>
+ </ul>
+ </div>
+ </nav>
+
+ <!-- 英雄区域 -->
+ <section class="hero" id="home">
+ <div class="hero-content">
+ <h1>探秘恩施大峡谷</h1>
+ <p>领略鄂西地质奇观，感受大自然的鬼斧神工</p>
+ <a href="#spots" class="btn">开始探索</a>
+ </div>
+ </section>
+
+ <!-- 轮播图 -->
+ <div class="container">
+ <div class="carousel">
+ <div class="carousel-inner">
+ <div class="carousel-item">
+ <img src="https://i.postimg.cc/fWJFnthM/1darklxb33.jpg" alt="恩施大峡谷全景">
+ </div>
+ <div class="carousel-item">
+ <img src="https://i.postimg.cc/kGN9QBs6/6d6d40a1739f73ad2953934adee60e48-jpg-r-1360x1360x95-ea02f933.jpg" alt="七星寨云海">
+ </div>
+ <div class="carousel-item">
+ <img src="https://i.postimg.cc/Kj8QNWrP/OIP-C-1.webp" alt="地缝景观">
+ </div>
+ <div class="carousel-item">
+ <img src="https://i.postimg.cc/JnfZydY7/c99f-fff9-47d3-9822-8e10562eb87148.jpg" alt="龙桥暗河">
+ </div>
+ </div>
+ <div class="carousel-control prev">
+ <i class="bi bi-chevron-left"></i>
+ </div>
+ <div class="carousel-control next">
+ <i class="bi bi-chevron-right"></i>
+ </div>
+ <div class="carousel-indicators">
+ <div class="indicator active" data-slide="0"></div>
+ <div class="indicator" data-slide="1"></div>
+ <div class="indicator" data-slide="2"></div>
+ <div class="indicator" data-slide="3"></div>
+ </div>
+ </div>
+ </div>
+
+ <!-- 景点介绍 -->
+ <section id="spots">
+ <div class="container">
+ <div class="section-title">
+ <h2>景点介绍</h2>
+ </div>
+ <div class="spots">
+ <div class="spot-card">
+ <div class="spot-img">
+ <img src="https://i.postimg.cc/ht2CJcLS/R-C-3.jpg" alt="地缝">
+ </div>
+ <div class="spot-content">
+ <h3>地缝奇观</h3>
+ <p>恩施大峡谷的地缝被誉为“东方大峡谷”，全长约20公里，是世界上最长的地缝之一。两侧绝壁如削，最高处达200余米，形成了一个天然的峡谷走廊。走进地缝，仿佛进入了一个神秘的世界，阳光从缝隙中洒下，形成独特的光影效果。地缝底部溪流潺潺，清澈见底，两岸植被茂密，空气清新，是徒步探险和摄影的绝佳地点。</p>
+ <div class="tags">
+ <span class="tag">徒步</span>
+ <span class="tag">摄影</span>
+ <span class="tag">探险</span>
+ </div>
+ </div>
+ </div>
+ <div class="spot-card">
+ <div class="spot-img">
+ <img src="https://i.postimg.cc/0j8vk9Gp/t01ae15ff5d286c4665.jpg" alt="七星寨">
+ </div>
+ <div class="spot-content">
+ <h3>七星寨云海</h3>
+ <p>七星寨位于大峡谷的顶部，海拔1200多米，是观景的最佳地点。这里因山形似北斗七星而得名，是峡谷的精华所在。站在七星寨观景台，可俯瞰整个大峡谷的壮丽景色，尤其是日出和日落时分，云海翻腾，霞光万道，如梦如幻。七星寨的步道蜿蜒曲折，穿行于奇峰异石之间，沿途可见石柱、石笋、石壁等喀斯特地貌，形态各异，栩栩如生。</p>
+ <div class="tags">
+ <span class="tag">观景</span>
+ <span class="tag">徒步</span>
+ <span class="tag">日出</span>
+ </div>
+ </div>
+ </div>
+ <div class="spot-card">
+ <div class="spot-img">
+ <img src="https://i.postimg.cc/vZdNpGyh/R-C-4.jpg" alt="龙桥暗河">
+ </div>
+ <div class="spot-content">
+ <h3>龙桥暗河</h3>
+ <p>龙桥暗河是大峡谷中的一大奇观，全长约3公里，河面宽约20米，水深约10米。河水从峡谷底部穿流而过，形成了一座天然的石桥，桥身如龙般蜿蜒，故名“龙桥”。暗河上方是高达数百米的悬崖峭壁，下方是幽深的河水，形成了一个独特的地下空间。游客可以乘坐小船游览暗河，感受地下世界的神秘与宁静，欣赏两岸奇特的钟乳石和石笋景观，仿佛置身于另一个世界。</p>
+ <div class="tags">
+ <span class="tag">漂流</span>
+ <span class="tag">探险</span>
+ <span class="tag">地下河</span>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 旅游攻略 -->
+ <section class="travel-guide" id="guide">
+ <div class="container">
+ <div class="section-title">
+ <h2>旅游攻略</h2>
+ </div>
+ <div class="tabs">
+ <button class="tab-btn active" data-tab="transportation">交通指南</button>
+ <button class="tab-btn" data-tab="food">美食推荐</button>
+ <button class="tab-btn" data-tab="accommodation">住宿推荐</button>
+ <button class="tab-btn" data-tab="itinerary">行程建议</button>
+ </div>
+ <div class="tab-content active" id="transportation">
+ <div class="guide-card">
+ <h3><i class="bi bi-geo-alt"></i> 如何到达恩施大峡谷</h3>
+ <ul>
+ <li><strong>飞机：</strong> 先飞抵恩施许家坪机场，机场距离大峡谷约50公里，可乘坐机场大巴或出租车前往。</li>
+ <li><strong>火车：</strong> 恩施火车站距离大峡谷约30公里，出站后可乘坐公交车或打车前往。</li>
+ <li><strong>自驾：</strong> 从恩施市区出发，沿209国道行驶约30分钟可达大峡谷景区入口。景区设有大型停车场。</li>
+ <li><strong>公共交通：</strong> 市区内有多条公交线路可达大峡谷景区，票价约5元。</li>
+ </ul>
+ </div>
+ <div class="guide-card">
+ <h3><i class="bi bi-signpost-split"></i> 景区交通</h3>
+ <ul>
+ <li>景区内设有观光车，可前往主要景点，票价20元/人。</li>
+ <li>从景区入口到七星寨需要乘坐索道，单程60元，往返100元。</li>
+ <li>地缝和龙桥暗河区域需要步行游览，建议穿舒适的鞋子。</li>
+ </ul>
+ </div>
+ </div>
+ <div class="tab-content" id="food">
+ <div class="guide-card">
+ <h3><i class="bi bi-cup-hot"></i> 土家族特色美食</h3>
+ <ul>
+ <li><strong>土家腊肉：</strong> 恩施山区特产，用传统方法腌制熏制，肥而不腻，瘦而不柴，是餐桌上的佳肴。</li>
+ <li><strong>合渣：</strong> 土家族传统食品，用黄豆磨成豆浆后，加入石膏水凝固而成，口感细腻，营养丰富。</li>
+ <li><strong>炕包谷粑：</strong> 用玉米面和糯米粉混合制成，外皮金黄酥脆，内馅香甜软糯，是当地人的早餐主食。</li>
+ <li><strong>土家社饭：</strong> 用糯米、大米和野菜混合蒸制而成，口感独特，是土家族的传统节日食品。</li>
+ </ul>
+ </div>
+ <div class="guide-card">
+ <h3><i class="bi bi-shop"></i> 美食地点推荐</h3>
+ <ul>
+ <li>景区附近的土家风情街有众多特色餐馆，可以品尝到正宗的土家族美食。</li>
+ <li>恩施市区有“土家宴”、“恩施土菜馆”等知名餐馆，推荐尝试。</li>
+ <li>景区内的餐厅提供简餐和套餐，价格适中，适合游客用餐。</li>
+ </ul>
+ </div>
+ </div>
+ <div class="tab-content" id="accommodation">
+ <div class="guide-card">
+ <h3><i class="bi bi-house-door"></i> 景区周边住宿</h3>
+ <ul>
+ <li><strong>大峡谷酒店：</strong> 景区内的四星级酒店，设施齐全，可俯瞰大峡谷美景，价格约300-500元/晚。</li>
+ <li><strong>峡谷云舍：</strong> 特色民宿，环境优美，价格约200-300元/晚。</li>
+ <li><strong>恩施市区酒店：</strong> 市区内有众多星级酒店和经济型酒店可供选择，价格根据星级和位置有所不同。</li>
+ </ul>
+ </div>
+ <div class="guide-card">
+ <h3><i class="bi bi-info-circle"></i> 住宿小贴士</h3>
+ <ul>
+ <li>旺季（夏季和节假日）建议提前预订住宿，以免临时无房。</li>
+ <li>景区内住宿有限，如需更多选择，可考虑住在恩施市区，每天往返景区。</li>
+ <li>民宿通常提供早餐，酒店则提供中西式自助早餐，可根据个人喜好选择。</li>
+ </ul>
+ </div>
+ </div>
+ <div class="tab-content" id="itinerary">
+ <div class="guide-card">
+ <h3><i class="bi bi-calendar-check"></i> 一日游行程</h3>
+ <ul>
+ <li><strong>上午：</strong> 8:00 从恩施市区出发，9:30 抵达大峡谷景区，购买门票和观光车票。</li>
+ <li><strong>上午：</strong> 10:00 乘坐观光车前往七星寨，游览主要景点，如绝壁长廊、一炷香等。</li>
+ <li><strong>中午：</strong> 12:30 在景区餐厅或附近餐馆用餐。</li>
+ <li><strong>下午：</strong> 13:30 乘坐观光车前往地缝，徒步游览地缝景观。</li>
+ <li><strong>下午：</strong> 16:00 返回景区入口，结束行程。</li>
+ </ul>
+ </div>
+ <div class="guide-card">
+ <h3><i class="bi bi-calendar3"></i> 二日游行程</h3>
+ <ul>
+                    <h4>第一天</h4>
+                    <p>上午：游览大峡谷地缝。</p>
+                    <p>中午：在景区内用午餐。</p>
+                    <p>下午：登七星寨，欣赏日落美景。</p>
+                    <p>晚上：入住景区附近酒店，享用晚餐，体验土家民俗表演。</p>
+                    
+                    <h4>第二天</h4>
+                    <p>上午：游览龙桥暗河，乘船体验地下世界的神秘。</p>
+                    <p>中午：在女儿寨民俗村用午餐。</p>
+                    <p>下午：自由活动，可选择购买土特产或继续探索周边景点。</p>
+                    <p>傍晚：返回恩施市区。</p>
+ <li><strong>备注：</strong> 二日游可以更深入地体验大峡谷的各个景点，尤其是需要较长时间游览的地缝和龙桥暗河。</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+ </section>
+
+ <!-- 页脚 -->
+ <footer class="footer" id="footer">
+ <div class="container">
+ <div class="footer-column">
+ <h3>关于大峡谷</h3>
+ <p>恩施大峡谷位于湖北省恩施土家族苗族自治州利川市，是清江支流郁江的深切河谷，以其壮丽的喀斯特地貌和丰富的生物多样性而闻名。</p>
+ <p>峡谷全长约50公里，核心景区面积约300平方公里，是华中地区最长的峡谷之一，也是中国最美的峡谷之一。</p>
+ </div>
+ <div class="footer-column">
+ <h3>快速链接</h3>
+          <ul class="footer-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#spots">景点介绍</a></li>
+            <li><a href="#guide">旅游攻略</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>旅行参考</h3>
+          <ul class="footer-links">
+            <li><a href="https://www.dahepiao.com/lvyounews1/20211123231699.html">大河票务</a></li>
+            <li><a href="https://you.ctrip.com/sight/enshicity1446196/51386.html">携程旅游</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2025 智慧恩施</div>
+    </div>
+ </footer>
+
+ <!-- JavaScript -->
+ <script>
+        // 标签页切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 移除所有按钮的active类
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    
+                    // 为当前点击的按钮添加active类
+                    this.classList.add('active');
+                    
+                    // 隐藏所有内容
+                    const tabContents = document.querySelectorAll('.tab-content');
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // 显示对应的内容
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // 轮播图功能
+            const carousel = document.querySelector('.carousel');
+            const carouselInner = carousel.querySelector('.carousel-inner');
+            const carouselItems = carousel.querySelectorAll('.carousel-item');
+            const prevBtn = carousel.querySelector('.prev');
+            const nextBtn = carousel.querySelector('.next');
+            const indicators = carousel.querySelectorAll('.carousel-indicator');
+            
+            let currentIndex = 0;
+            const itemCount = carouselItems.length;
+            
+            function updateCarousel() {
+                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // 更新指示器
+                indicators.forEach((indicator, index) => {
+                    if (index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+                updateCarousel();
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % itemCount;
+                updateCarousel();
+            });
+            
+            // 点击指示器切换轮播图
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', function() {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+            
+            // 自动轮播
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % itemCount;
+                updateCarousel();
+            }, 5000);
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

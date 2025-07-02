@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>恩施黄鹤桥峰林 · 奇幻石林秘境</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        /* 通用样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        
+        body {
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        /* 头部样式 */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #1a73e8;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #1a73e8;
+        }
+        
+        /* 英雄区域 */
+        .hero {
+            height: 80vh;
+            background: url('https://i.postimg.cc/TYfd38X3/w-Kg-BEFt-RVCq-AJSv-PAA50-AY8-F3o86.jpg') no-repeat center center/cover;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #1a73e8;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #0d62c9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 特色区域 */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .feature-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .feature-card:hover .feature-img img {
+            transform: scale(1.1);
+        }
+        
+        .feature-content {
+            padding: 20px;
+        }
+        
+        .feature-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #1a73e8;
+        }
+        
+        .feature-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        /* 景区介绍 */
+        .introduction {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .tabs {
+            margin-bottom: 30px;
+        }
+        
+        .tab-buttons {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #666;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #1a73e8;
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+        
+        .tab-btn.active {
+            color: #1a73e8;
+        }
+        
+        .tab-btn.active::after {
+            transform: scaleX(1);
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .tab-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        /* 旅行指南 */
+        .travel-guide {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .guide-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .guide-text {
+            padding-right: 20px;
+        }
+        
+        .guide-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .guide-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        .guide-list {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .guide-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+            line-height: 1.6;
+        }
+        
+        .guide-list li::before {
+            content: '•';
+            color: #1a73e8;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+        
+        .guide-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .guide-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* 页脚 */
+        footer {
+            background: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: #1a73e8;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #1a73e8;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .tab-buttons {
+                flex-wrap: wrap;
+            }
+            
+            .tab-btn {
+                padding: 10px 15px;
+            }
+            
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .guide-text {
+                padding-right: 0;
+                margin-bottom: 30px;
+            }
+            
+            .carousel-item img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">黄鹤桥峰林</div>
+            <nav>
+                <ul>
+                    <li><a href="#features">景区特色</a></li>
+                    <li><a href="#introduction">景区介绍</a></li>
+                    <li><a href="#travel-guide">旅行指南</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>黄鹤桥峰林</h1>
+            <p>探秘恩施奇石世界，感受大自然的鬼斧神工，体验峰林秘境的奇幻魅力</p>
+            <a href="#features" class="btn">探索景区</a>
+        </div>
+    </section>
+    
+    <!-- 特色区域 -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>景区特色</h2>
+                <p>黄鹤桥峰林以其独特的喀斯特地貌和奇特的石林景观闻名，这里山峰林立，形态各异，仿佛是大自然精心雕琢的艺术品</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://i.postimg.cc/0y6DcKX3/100w0h0000008xost-E0-F9.jpg" alt="奇石景观">
+                    </div>
+                    <div class="feature-content">
+                        <h3>奇石景观</h3>
+                        <p>黄鹤桥峰林以其独特的喀斯特地貌和奇特的石林景观闻名，这里山峰林立，形态各异，仿佛是大自然精心雕琢的艺术品。</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://i.postimg.cc/qMHv9h7S/5f81a6bd2634033e753efab75ebab6f1-jpg-r-680x453x95-d79b3a77.jpg" alt="云海奇观">
+                    </div>
+                    <div class="feature-content">
+                        <h3>云海奇观</h3>
+                        <p>清晨时分，云雾缭绕在峰林之间，形成壮观的云海奇观，如梦如幻，仿佛置身仙境。</p>
+                    </div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-img">
+                        <img src="https://i.postimg.cc/fWrxXvBX/95e35a37a2c140e9dd68b0decc1bf94a-jpg-r-1360x1360x95-1e50ea05.jpg" alt="原始森林">
+                    </div>
+                    <div class="feature-content">
+                        <h3>原始森林</h3>
+                        <p>景区内保存着大片的原始森林，古木参天，空气清新，是天然的氧吧和避暑胜地。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 景区介绍 -->
+    <section class="introduction" id="introduction">
+        <div class="container">
+            <div class="section-title">
+                <h2>景区介绍</h2>
+                <p>了解黄鹤桥峰林的历史文化和自然特色</p>
+            </div>
+            
+            <div class="tabs">
+                <div class="tab-buttons">
+                    <button class="tab-btn active" data-tab="history">历史沿革</button>
+                    <button class="tab-btn" data-tab="geography">地理特色</button>
+                    <button class="tab-btn" data-tab="culture">文化内涵</button>
+                </div>
+                
+                <div class="tab-content active" id="history">
+                    <p>黄鹤桥峰林位于湖北省恩施土家族苗族自治州，是恩施大峡谷的重要组成部分。据考证，这里的地貌形成于约2亿年前的三叠纪时期，经过长期的地壳运动和雨水侵蚀，形成了如今独特的峰林地貌。</p>
+                    <p>在古代，这里曾是土家族先民的重要活动区域，留下了许多与土家族文化相关的传说和故事。传说中，黄鹤桥得名于一只神奇的黄鹤，它常常在这里栖息，为当地百姓带来吉祥。</p>
+                    <p>20世纪80年代，随着恩施旅游业的开发，黄鹤桥峰林逐渐被外界所知，并因其独特的自然景观成为摄影爱好者和徒步旅行者的天堂。</p>
+                </div>
+                
+                <div class="tab-content" id="geography">
+                    <p>黄鹤桥峰林地处武陵山脉腹地，属于典型的喀斯特地貌。景区内峰林密布，石柱林立，形态各异，有的如利剑直插云霄，有的如巨兽匍匐山间，有的如仙人下凡，栩栩如生。</p>
+                    <p>景区海拔在800-1200米之间，气候温和湿润，年平均气温16℃左右，是避暑度假的理想之地。这里植被丰富，森林覆盖率高，空气负氧离子含量丰富，被誉为"天然氧吧"。</p>
+                    <p>峰林之间分布着多条溪流和瀑布，清澈见底，水质优良，是当地居民的重要水源。这些溪流不仅为峰林增添了灵动的美，也为景区带来了丰富的生物多样性。</p>
+                </div>
+                
+                <div class="tab-content" id="culture">
+                    <p>黄鹤桥峰林不仅有着独特的自然景观，还蕴含着丰富的土家族文化内涵。这里是土家族传统农耕文化的重要发源地之一，至今仍保留着许多土家族的传统文化和习俗。</p>
+                    <p>在峰林周边的村落里，游客可以体验到地道的土家族风情，品尝正宗的土家族美食，欣赏原汁原味的土家族歌舞表演，了解土家族的历史和文化。</p>
+                    <p>黄鹤桥峰林也是土家族民间传说和神话故事的重要载体。关于峰林的形成、黄鹤的传说等故事，在当地代代相传，丰富了景区的文化内涵，也为游客提供了更深层次的旅游体验。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 旅行指南 -->
+    <section class="travel-guide" id="travel-guide">
+        <div class="container">
+            <div class="section-title">
+                <h2>旅行指南</h2>
+                <p>为您提供黄鹤桥峰林旅游的实用信息</p>
+            </div>
+            
+            <div class="guide-grid">
+                <div class="guide-text">
+                    <h2>如何规划您的旅程</h2>
+                    <p>黄鹤桥峰林是一处适合一日游或两日游的景区，无论您是摄影爱好者、徒步旅行者还是自然爱好者，都能在这里找到属于自己的乐趣。</p>
+                    
+                    <ul class="guide-list">
+                        <li>最佳旅游季节：春季（3-5月）和秋季（9-11月）是游览黄鹤桥峰林的最佳时间，此时气候宜人，景色优美。</li>
+                        <li>交通方式：从恩施市区出发，可乘坐旅游专线巴士或包车前往，车程约1小时。</li>
+                        <li>游览路线：建议从东门进入，先游览核心峰林区，然后前往观景台，最后到游客中心休息。</li>
+                        <li>停留时间：建议至少安排半天时间，如果想要深度体验，可以安排一整天。</li>
+                        <li>注意事项：请穿舒适的徒步鞋，携带足够的水和防晒用品，部分路段需要步行，请量力而行。</li>
+                    </ul>
+                    
+                    <p>景区内设有多个休息区和观景台，您可以根据自己的体力和兴趣选择合适的游览路线。如果想要深入探索，建议请一位当地向导，他们不仅熟悉地形，还能为您讲述许多关于峰林的故事和传说。</p>
+                </div>
+                
+                <div class="guide-image">
+                    <img src="https://i.postimg.cc/x1mzVDGT/808-2205191-I2370-L-lp.png" alt="旅行指南">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+  <!-- ======= 页脚 ======= -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>关于神农溪</h3>
+          <p>神农溪位于湖北省巴东县，是集自然峡谷景观与纤夫文化于一体的国家 5A 级旅游区。</p>
+          <p>清澈溪水与峭壁天险造就独特风貌，是探险爱好者与文化旅行者的绝佳目的地。</p>
+        </div>
+        <div class="footer-column">
+          <h3>快速链接</h3>
+          <ul class="footer-links">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#photos">景区特色</a></li>
+            <li><a href="#introduction">景区介绍</a></li>
+            <li><a href="#guide">旅行指南</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>旅行参考</h3>
+          <ul class="footer-links">
+            <li><a href="https://www.dahepiao.com/jingqulvyou1/20210819214137.html">大河票务</a></li>
+            <li><a href="https://you.ctrip.com/sight/badong2688/5716773.html">携程旅游</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2025 智慧恩施</div>
+    </div>
+  </footer>
+    
+    <script>
+        // 标签页切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 移除所有按钮的active类
+                    tabButtons.forEach(b => b.classList.remove('active'));
+                    
+                    // 为当前点击的按钮添加active类
+                    this.classList.add('active');
+                    
+                    // 隐藏所有内容
+                    const tabContents = document.querySelectorAll('.tab-content');
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // 显示对应的内容
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // 轮播图功能
+            const carousel = document.querySelector('.carousel');
+            const carouselInner = carousel.querySelector('.carousel-inner');
+            const carouselItems = carousel.querySelectorAll('.carousel-item');
+            const prevBtn = carousel.querySelector('.prev');
+            const nextBtn = carousel.querySelector('.next');
+            const indicators = carousel.querySelectorAll('.carousel-indicator');
+            
+            let currentIndex = 0;
+            const itemCount = carouselItems.length;
+            
+            function updateCarousel() {
+                carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // 更新指示器
+                indicators.forEach((indicator, index) => {
+                    if (index === currentIndex) {
+                        indicator.classList.add('active');
+                    } else {
+                        indicator.classList.remove('active');
+                    }
+                });
+            }
+            
+            prevBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + itemCount) % itemCount;
+                updateCarousel();
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % itemCount;
+                updateCarousel();
+            });
+            
+            // 点击指示器切换轮播图
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', function() {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+            
+            // 自动轮播
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % itemCount;
+                updateCarousel();
+            }, 5000);
+            
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
