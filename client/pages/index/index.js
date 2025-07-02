@@ -5,7 +5,7 @@ const util = require('../../utils/util.js');
 
 Page({
     data: {
-      bannerUrls: ['/assets/横放1.png'],
+      bannerUrls: ['/assets/横放1.png', '/assets/横放2.png', '/assets/横放3.png'],
       types:[
         {
           imgUrl:'https://gw.alicdn.com/tfs/TB1lw9HfgoQMeJjy0FpXXcTxpXa-225-183.png',
