@@ -1,3 +1,5 @@
+<!-- 导览页面嵌入网页 -->
+<web-view src="{{webUrl}}"></web-view>
 <!-- pages/guide/guide.wxml -->
 <view class="guide-container">
   <image src="../../image/导览.png" class="guide-icon" mode="aspectFit" />

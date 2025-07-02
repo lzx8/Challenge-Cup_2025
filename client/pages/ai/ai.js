@@ -4,6 +4,7 @@ Page({
     aiUrl: 'https://appbuilder.baidu.com/s/zCGaFmRS'
   },
   onLoad() {
-    // 可在此处理页面加载逻辑
+    // 兼容部分安卓/真机 web-view 首次不显示问题，强制 setData 触发渲染
+    this.setData({ aiUrl: this.data.aiUrl });
   }
 });
