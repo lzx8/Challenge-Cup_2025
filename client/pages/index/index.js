@@ -5,7 +5,7 @@ const util = require('../../utils/util.js');
 
 Page({
     data: {
-      bannerUrls: ['https://gw.alicdn.com/tfs/TB1MEhHoN6I8KJjy0FgXXXXzVXa-750-234.jpg_760x760q75.jpg_.webp', 'https://gw.alicdn.com/imgextra/i3/0/TB2O9BaoMLD8KJjSszeXXaGRpXa_!!0-travel.jpg_760x760q75.jpg_.webp', 'https://gw.alicdn.com/tfs/TB1WGnPmBTH8KJjy0FiXXcRsXXa-750-234.jpg_760x760q75.jpg_.webp','https://gw.alicdn.com/tfs/TB1vX7qoC_I8KJjy0FoXXaFnVXa-750-234.jpg_760x760q75.jpg_.webp'],
+      bannerUrls: ['/assets/横放1.png'],
       types:[
         {
           imgUrl:'https://gw.alicdn.com/tfs/TB1lw9HfgoQMeJjy0FpXXcTxpXa-225-183.png',
@@ -167,55 +167,10 @@ Page({
         }
       ]
     },
-    // 首页图片热点跳转到各自网页
-    goPengjiazai() {
+    // 点击按钮跳转到 AI 页面
+    goToAI() {
       wx.navigateTo({
-        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('彭家寨')
-      });
-    },
-    goSuobuyashilin() {
-      wx.navigateTo({
-        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('梭布垭石林')
-      });
-    },
-    goShennongxi() {
-      wx.navigateTo({
-        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('神农溪')
-      });
-    },
-    goTusicheng() {
-      wx.navigateTo({
-        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('土司城')
-      });
-    },
-    goHuangheqiaofenglin() {
-      wx.navigateTo({
-        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('黄鹤桥峰林')
-      });
-    },
-    goNuercheng() {
-      wx.navigateTo({
-        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('女儿城')
-      });
-    },
-    goLonglingong() {
-      wx.navigateTo({
-        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('龙麟宫')
-      });
-    },
-    goTenglongdong() {
-      wx.navigateTo({
-        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('腾龙洞')
-      });
-    },
-    goDaxiagu() {
-      wx.navigateTo({
-        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('大峡谷')
-      });
-    },
-    goQiyueshan() {
-      wx.navigateTo({
-        url: '/pages/webview/webview?url=' + encodeURIComponent('') + '&title=' + encodeURIComponent('齐岳山')
+        url: '/pages/ai/ai'
       });
     },
     loadMore:function(){
@@ -260,5 +215,56 @@ Page({
     },
     onReachBottom: function () {
       this.loadMore();
+    },
+    // 首页图片热点跳转到各自网页
+    goPengjiazai() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('https://lzx8.github.io/peng/') + '&title=' + encodeURIComponent('彭家寨')
+      });
+    },
+    goSuobuyashilin() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('https://lzx8.github.io/shilin/') + '&title=' + encodeURIComponent('梭布垭石林')
+      });
+    },
+    goShennongxi() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('https://lzx8.github.io/shennong/') + '&title=' + encodeURIComponent('神农溪')
+      });
+    },
+    goTusicheng() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('https://lzx8.github.io/tu/') + '&title=' + encodeURIComponent('土司城')
+      });
+    },
+    goHuangheqiaofenglin() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('https://lzx8.github.io/huanghe/') + '&title=' + encodeURIComponent('黄鹤桥峰林')
+      });
+    },
+    goNuercheng() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('https://lzx8.github.io/nvercheng/') + '&title=' + encodeURIComponent('女儿城')
+      });
+    },
+    goLonglingong() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('https://lzx8.github.io/long/') + '&title=' + encodeURIComponent('龙麟宫')
+      });
+    },
+    goTenglongdong() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('https://lzx8.github.io/tenglong/') + '&title=' + encodeURIComponent('腾龙洞')
+      });
+    },
+    goDaxiagu() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('https://lzx8.github.io/enshidaxiagu/') + '&title=' + encodeURIComponent('大峡谷')
+      });
+    },
+    goQiyueshan() {
+      wx.navigateTo({
+        url: '/pages/webview/webview?url=' + encodeURIComponent('https://lzx8.github.io/qiyue/') + '&title=' + encodeURIComponent('齐岳山')
+      });
     }
 })

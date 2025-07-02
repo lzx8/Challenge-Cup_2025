@@ -1,5 +1,11 @@
 <!--pages/find/find.wxml-->
 <view class='container'>
+  <view class='header'>
+    <navigator url="../search/search" open-type="navigate" class='searchBar'>
+        <icon type="search" size='16'/>
+        <text>赶快输入目的地~</text>
+    </navigator>
+  </view>
   <view class='findTop'>
     <view class='bg'></view>
     <view class='btnList'>

@@ -1,34 +1,39 @@
 <!--index.wxml-->
 <view class='container'>
-  <view class='header'>
-    <navigator url="../search/search" open-type="navigate" class='searchBar'>
-        <icon type="search" size='16'/>
-        <text>赶快输入目的地~</text>
-    </navigator>
+  <!-- 首页头部已移除搜索栏 -->
+  <!-- 首页轮播图 -->
+  <view class="bannerSwiper">
+    <swiper indicator-dots="true" autoplay="true" interval="3000" duration="500" circular="true">
+      <block wx:for="{{bannerUrls}}" wx:key="index">
+        <swiper-item>
+          <image src="{{item}}" mode="aspectFill" class="banner-img" />
+        </swiper-item>
+      </block>
+    </swiper>
   </view>
   <!-- 首页主展示图片，热点区域跳转到各自网页 -->
   <view class="main-img-hot">
     <image src="/assets/首页.png" class="main-img" mode="widthFix" />
     <!-- 热区：彭家寨 -->
-    <cover-view class="hot-spot spot-pengjiazai" bindtap="goPengjiazai" style="position: absolute; left: 27rpx; top: 1524rpx; width: 335rpx; display: block; box-sizing: border-box; height: 475rpx"></cover-view>
+    <cover-view class="hot-spot spot-pengjiazai" bindtap="goPengjiazai" style="position: absolute; left: 27rpx; top: 991rpx; width: 335rpx; display: block; box-sizing: border-box; height: 475rpx"></cover-view>
     <!-- 热区：梭布垭石林 -->
-    <cover-view class="hot-spot spot-suobuyashilin" bindtap="goSuobuyashilin" style="width: 343rpx; height: 475rpx; display: block; box-sizing: border-box; left: 375rpx; top: 1524rpx; position: absolute"></cover-view>
+    <cover-view class="hot-spot spot-suobuyashilin" bindtap="goSuobuyashilin" style="width: 343rpx; height: 475rpx; display: block; box-sizing: border-box; left: 379rpx; top: 991rpx; position: absolute"></cover-view>
     <!-- 热区：神农溪 -->
-    <cover-view class="hot-spot spot-shennongxi" bindtap="goShennongxi" style="position: absolute; left: 27rpx; top: 2089rpx; width: 335rpx; display: block; box-sizing: border-box; height: 475rpx"></cover-view>
+    <cover-view class="hot-spot spot-shennongxi" bindtap="goShennongxi" style="position: absolute; left: 27rpx; top: 1545rpx; width: 335rpx; display: block; box-sizing: border-box; height: 483rpx"></cover-view>
     <!-- 热区：土司城 -->
-    <cover-view class="hot-spot spot-tusicheng" bindtap="goTusicheng" style="position: absolute; left: 383rpx; top: 2089rpx; width: 335rpx; height: 475rpx; display: block; box-sizing: border-box"></cover-view>
+    <cover-view class="hot-spot spot-tusicheng" bindtap="goTusicheng" style="position: absolute; left: 383rpx; top: 1549rpx; width: 335rpx; height: 475rpx; display: block; box-sizing: border-box"></cover-view>
     <!-- 热区：黄鹤桥峰林 -->
-    <cover-view class="hot-spot spot-huangheqiaofenglin" bindtap="goHuangheqiaofenglin" style="position: absolute; left: 27rpx; top: 2643rpx; width: 335rpx; height: 491rpx; display: block; box-sizing: border-box"></cover-view>
+    <cover-view class="hot-spot spot-huangheqiaofenglin" bindtap="goHuangheqiaofenglin" style="position: absolute; left: 27rpx; top: 2110rpx; width: 335rpx; height: 475rpx; display: block; box-sizing: border-box"></cover-view>
     <!-- 热区：女儿城 -->
-    <cover-view class="hot-spot spot-nuercheng" bindtap="goNuercheng" style="position: absolute; left: 383rpx; top: 2643rpx; width: 335rpx; height: 483rpx; display: block; box-sizing: border-box"></cover-view>
+    <cover-view class="hot-spot spot-nuercheng" bindtap="goNuercheng" style="position: absolute; left: 383rpx; top: 2102rpx; width: 335rpx; height: 483rpx; display: block; box-sizing: border-box"></cover-view>
     <!-- 热区：龙麟宫 -->
-    <cover-view class="hot-spot spot-longlingong" bindtap="goLonglingong" style="position: absolute; left: 27rpx; top: 3216rpx; width: 335rpx; height: 475rpx; display: block; box-sizing: border-box"></cover-view>
+    <cover-view class="hot-spot spot-longlingong" bindtap="goLonglingong" style="position: absolute; left: 27rpx; top: 2664rpx; width: 335rpx; height: 475rpx; display: block; box-sizing: border-box"></cover-view>
     <!-- 热区：腾龙洞 -->
-    <cover-view class="hot-spot spot-tenglongdong" bindtap="goTenglongdong" style="position: absolute; left: 383rpx; top: 3208rpx; width: 335rpx; height: 483rpx; display: block; box-sizing: border-box"></cover-view>
+    <cover-view class="hot-spot spot-tenglongdong" bindtap="goTenglongdong" style="position: absolute; left: 387rpx; top: 2664rpx; width: 335rpx; height: 483rpx; display: block; box-sizing: border-box"></cover-view>
     <!-- 热区：大峡谷 -->
-    <cover-view class="hot-spot spot-daxiagu" bindtap="goDaxiagu" style="position: absolute; left: 27rpx; top: 3772rpx; width: 335rpx; height: 483rpx; display: block; box-sizing: border-box"></cover-view>
+    <cover-view class="hot-spot spot-daxiagu" bindtap="goDaxiagu" style="position: absolute; left: 27rpx; top: 3235rpx; width: 335rpx; height: 483rpx; display: block; box-sizing: border-box"></cover-view>
     <!-- 热区：齐岳山 -->
-    <cover-view class="hot-spot spot-qiyueshan" bindtap="goQiyueshan" style="position: absolute; left: 383rpx; top: 3772rpx; width: 327rpx; height: 468rpx; display: block; box-sizing: border-box"></cover-view>
+    <cover-view class="hot-spot spot-qiyueshan" bindtap="goQiyueshan" style="position: absolute; left: 391rpx; top: 3235rpx; width: 327rpx; height: 475rpx; display: block; box-sizing: border-box"></cover-view>
   </view>
   <!-- 数字人助手按钮已移至AI导游页面 -->
 </view>

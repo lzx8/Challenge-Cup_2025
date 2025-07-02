@@ -1,3 +1,18 @@
+/* 首页轮播图样式 */
+.bannerSwiper {
+  width: 100vw;
+  height: 50vw;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+.banner-img {
+  width: 100vw; /* 全屏宽度 */
+  height: 50vw;  /* 与容器高度一致 */
+  border-radius: 0;
+  display: block;
+  margin: 0;
+  object-fit: cover;
+}
 /* 新增各景点热点区域坐标（需根据实际图片微调） */
 .spot-tusicheng {
   left: 12%;
@@ -46,11 +61,12 @@
   position: relative;
   width: 100%;
 }
+/* 首页主图热点区域样式 */
 .hot-spot {
   position: absolute;
   z-index: 10;
-  background: rgba(0, 153, 255, 0.3); /* 半透明蓝色，便于调试 */
-  border: 2px solid #007aff;
+  background: rgba(255, 255, 255,); 
+  border: none;
   border-radius: 12rpx;
   transition: background 0.2s;
 }
@@ -567,7 +583,7 @@
 }
 .main-img {
   width: 100%;
-  margin: 20rpx 0;
+  margin: 0;
   border-radius: 16rpx;
   box-shadow: 0 4rpx 16rpx #eee;
 }
